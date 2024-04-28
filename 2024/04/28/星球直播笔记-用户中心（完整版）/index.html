@@ -1,0 +1,1049 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/chaserblog/img/fluid.png">
+  <link rel="icon" href="/chaserblog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="用户中心直播笔记（完整版）目标：完整了解做项目的思路，接触一些企业级的开发技术，让大家之后都能轻松做出管理系统！ 项目源码用户中心前端项目源码：http:&#x2F;&#x2F;gitlab.code-nav.cn&#x2F;root&#x2F;user-center-frontend 用户中心后端项目源码：http:&#x2F;&#x2F;gitlab.code-nav.cn&#x2F;root&#x2F;user-center-backend 企业做项目流程需求分析 &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习">
+<meta property="og:url" content="https://zhangruyi3906.github.io/chaserblog/2024/04/28/%E6%98%9F%E7%90%83%E7%9B%B4%E6%92%AD%E7%AC%94%E8%AE%B0-%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83%EF%BC%88%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="用户中心直播笔记（完整版）目标：完整了解做项目的思路，接触一些企业级的开发技术，让大家之后都能轻松做出管理系统！ 项目源码用户中心前端项目源码：http:&#x2F;&#x2F;gitlab.code-nav.cn&#x2F;root&#x2F;user-center-frontend 用户中心后端项目源码：http:&#x2F;&#x2F;gitlab.code-nav.cn&#x2F;root&#x2F;user-center-backend 企业做项目流程需求分析 &amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qiniuyun.code-nav.cn/img/image-20220319005859098.png">
+<meta property="article:published_time" content="2024-04-28T07:09:42.000Z">
+<meta property="article:modified_time" content="2024-04-28T08:09:46.752Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="程序员鱼皮">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://qiniuyun.code-nav.cn/img/image-20220319005859098.png">
+  
+  
+  
+  <title>学习 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/chaserblog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/chaserblog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/chaserblog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhangruyi3906.github.io","root":"/chaserblog/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/chaserblog/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/chaserblog/js/utils.js" ></script>
+  <script  src="/chaserblog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/chaserblog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/chaserblog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="学习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-28 15:09" pubdate>
+          2024年4月28日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          37 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">学习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="用户中心直播笔记（完整版）"><a href="#用户中心直播笔记（完整版）" class="headerlink" title="用户中心直播笔记（完整版）"></a>用户中心直播笔记（完整版）</h1><p>目标：完整了解做项目的思路，接触一些企业级的开发技术，让大家之后都能轻松做出管理系统！</p>
+<h3 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h3><p>用户中心前端项目源码：<a target="_blank" rel="noopener" href="http://gitlab.code-nav.cn/root/user-center-frontend">http://gitlab.code-nav.cn/root/user-center-frontend</a></p>
+<p>用户中心后端项目源码：<a target="_blank" rel="noopener" href="http://gitlab.code-nav.cn/root/user-center-backend">http://gitlab.code-nav.cn/root/user-center-backend</a></p>
+<h2 id="企业做项目流程"><a href="#企业做项目流程" class="headerlink" title="企业做项目流程"></a>企业做项目流程</h2><p>需求分析 &#x3D;&gt; 设计（概要设计、详细设计）&#x3D;&gt; 技术选型 &#x3D;&gt; 初始化 &#x2F; 引入需要的技术 &#x3D;&gt; 写 Demo &#x3D;&gt; 写代码（实现业务逻辑） &#x3D;&gt; 测试（单元测试、系统测试）&#x3D;&gt; 代码提交 &#x2F; 代码评审 &#x3D;&gt; 部署 &#x3D;&gt; 发布上线</p>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ol>
+<li>登录 &#x2F; 注册</li>
+<li>用户管理（仅管理员可见）对用户的查询或者修改</li>
+<li>用户校验（仅星球用户可见）</li>
+</ol>
+<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>前端：三件套 + React + 组件库 Ant Design + Umi + Ant Design Pro（现成的管理系统）</p>
+<p>后端：</p>
+<ul>
+<li>java</li>
+<li>spring（依赖注入框架，帮助你管理 Java 对象，集成一些其他的内容）</li>
+<li>springmvc（web 框架，提供接口访问、restful接口等能力）</li>
+<li>mybatis（Java 操作数据库的框架，持久层框架，对 jdbc 的封装）</li>
+<li>mybatis-plus（对 mybatis 的增强，不用写 sql 也能实现增删改查）</li>
+<li>springboot（<strong>快速启动</strong> &#x2F; 快速集成项目。不用自己管理 spring 配置，不用自己整合各种框架）</li>
+<li>junit 单元测试库</li>
+<li>mysql 数据库</li>
+</ul>
+<p>部署：服务器 &#x2F; 容器（平台）</p>
+<h2 id="3-种初始化-Java-项目的方式"><a href="#3-种初始化-Java-项目的方式" class="headerlink" title="3 种初始化 Java 项目的方式"></a>3 种初始化 Java 项目的方式</h2><ol>
+<li>GitHub 搜现成的代码</li>
+<li>SpringBoot 官方的模板生成器（<a target="_blank" rel="noopener" href="https://start.spring.io/%EF%BC%89">https://start.spring.io/）</a></li>
+<li>直接在 IDEA 开发工具中生成  ✔</li>
+</ol>
+<p>如果要引入 java 的包，可以去 maven 中心仓库寻找（<a target="_blank" rel="noopener" href="http://mvnrepository.com/%EF%BC%89">http://mvnrepository.com/）</a></p>
+<h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><p>什么是数据库？存数据的</p>
+<p>数据库里有什么？数据表（理解为 excel 表格）</p>
+<p>java 操作数据库？程序代替人工</p>
+<h3 id="什么是设计数据库表？"><a href="#什么是设计数据库表？" class="headerlink" title="什么是设计数据库表？"></a>什么是设计数据库表？</h3><p>有哪些表（模型）？表中有哪些字段？字段的类型？数据库字段添加索引？表与表之间的关联？</p>
+<p>举例：性别是否需要加索引？</p>
+<h3 id="用户表设计"><a href="#用户表设计" class="headerlink" title="用户表设计"></a>用户表设计</h3><p>id（主键）bigint</p>
+<p>username 昵称  varchar</p>
+<p>userAccount 登录账号 </p>
+<p>avatarUrl 头像 varchar</p>
+<p>gender 性别 tinyint</p>
+<p>userPassword 密码  varchar</p>
+<p>phone 电话 varchar</p>
+<p>email 邮箱 varchar</p>
+<p>userStatus 用户状态 int  0 - 正常 </p>
+<p>createTime 创建时间（数据插入时间）datetime</p>
+<p>updateTime 更新时间（数据更新时间）datetime</p>
+<p>isDelete 是否删除 0 1（逻辑删除）tinyint</p>
+<p>userRole 用户角色 0 - 普通用户 1 - 管理员</p>
+<h3 id="自动生成器的使用"><a href="#自动生成器的使用" class="headerlink" title="自动生成器的使用"></a>自动生成器的使用</h3><p>MyBatisX 插件，自动根据数据库生成：</p>
+<ul>
+<li>domain：实体对象</li>
+<li>mapper：操作数据库的对象</li>
+<li>mapper.xml：定义了 mapper 对象和数据库的关联，可以在里面自己写 SQL</li>
+<li>service：包含常用的增删改查</li>
+<li>serviceImpl：具体实现 service</li>
+</ul>
+<p>从而提高开发效率！</p>
+<h2 id="注册逻辑设计"><a href="#注册逻辑设计" class="headerlink" title="注册逻辑设计"></a>注册逻辑设计</h2><ol>
+<li>用户在前端输入账户和密码、以及校验码（todo）</li>
+<li>校验用户的账户、密码、校验密码，是否符合要求<ol>
+<li>非空</li>
+<li>账户长度 <strong>不小于</strong> 4 位</li>
+<li>密码就 <strong>不小于</strong> 8 位吧</li>
+<li>账户不能重复</li>
+<li>账户不包含特殊字符</li>
+<li>密码和校验密码相同</li>
+</ol>
+</li>
+<li>对密码进行加密（密码千万不要直接以明文存储到数据库中）</li>
+<li>向数据库插入用户数据</li>
+</ol>
+<h2 id="登录功能"><a href="#登录功能" class="headerlink" title="登录功能"></a>登录功能</h2><h3 id="接口设计"><a href="#接口设计" class="headerlink" title="接口设计"></a>接口设计</h3><p>接受参数：用户账户、密码</p>
+<p>请求类型：POST </p>
+<p>请求体：JSON 格式的数据</p>
+<blockquote>
+<p>请求参数很长时不建议用 get</p>
+</blockquote>
+<p>返回值：用户信息（ <strong>脱敏</strong> ）</p>
+<h3 id="登录逻辑"><a href="#登录逻辑" class="headerlink" title="登录逻辑"></a>登录逻辑</h3><ol>
+<li><p>校验用户账户和密码是否合法</p>
+<ol>
+<li>非空</li>
+<li>账户长度不小于 4 位</li>
+<li>密码就不小于 8 位</li>
+<li>账户不包含特殊字符</li>
+</ol>
+</li>
+<li><p>校验密码是否输入正确，要和数据库中的密文密码去对比</p>
+</li>
+<li><p>用户信息脱敏，隐藏敏感信息，防止数据库中的字段泄露</p>
+</li>
+<li><p>我们要记录用户的登录态（session），将其存到服务器上（用后端 SpringBoot 框架封装的服务器 tomcat 去记录）</p>
+<p>cookie</p>
+</li>
+<li><p>返回脱敏后的用户信息</p>
+</li>
+</ol>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>控制层 Controller 封装请求</p>
+<p>application.yml 指定接口全局路径前缀：</p>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">servlet</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">context-path</span><span class="hljs-punctuation">:</span> <span class="hljs-string">/api</span><br></code></pre></td></tr></table></figure>
+
+<p>控制器注解：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-meta">@RestController</span> 适用于编写 restful 风格的 api，返回值默认为 json 类型<br></code></pre></td></tr></table></figure>
+
+<p>校验写在哪里？</p>
+<ul>
+<li>controller 层倾向于对请求参数本身的校验，不涉及业务逻辑本身（越少越好）</li>
+<li>service 层是对业务逻辑的校验（有可能被 controller 之外的类调用）</li>
+</ul>
+<h3 id="如何知道是哪个用户登录了？"><a href="#如何知道是哪个用户登录了？" class="headerlink" title="如何知道是哪个用户登录了？"></a>如何知道是哪个用户登录了？</h3><blockquote>
+<p>javaweb 这一块的知识</p>
+</blockquote>
+<ol>
+<li><p>连接服务器端后，得到一个 session 状态（匿名会话），返回给前端</p>
+</li>
+<li><p>登录成功后，得到了登录成功的 session，并且给该sessio n设置一些值（比如用户信息），返回给前端一个设置 cookie 的 ”命令“ </p>
+<p><strong>session &#x3D;&gt; cookie</strong> </p>
+</li>
+<li><p>前端接收到后端的命令后，设置 cookie，保存到浏览器内</p>
+</li>
+<li><p>前端再次请求后端的时候（相同的域名），在请求头中带上cookie去请求</p>
+</li>
+<li><p>后端拿到前端传来的 cookie，找到对应的 session</p>
+</li>
+<li><p>后端从 session 中可以取出基于该 session 存储的变量（用户的登录信息、登录名）</p>
+</li>
+</ol>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><p>接口设计关键：必须鉴权！！！</p>
+<ol>
+<li>查询用户（允许根据用户名查询）</li>
+<li>删除用户</li>
+</ol>
+<h2 id="写代码流程"><a href="#写代码流程" class="headerlink" title="写代码流程"></a>写代码流程</h2><ol>
+<li>先做设计</li>
+<li>代码实现</li>
+<li>持续优化！！！（复用代码、提取公共逻辑 &#x2F; 常量）</li>
+</ol>
+<h2 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h2><p>前端需要向后端发送请求才能获取数据 &#x2F; 执行操作。</p>
+<p>怎么发请求：前端使用 ajax 来请求后端</p>
+<h3 id="前端请求库及封装关系"><a href="#前端请求库及封装关系" class="headerlink" title="前端请求库及封装关系"></a>前端请求库及封装关系</h3><ul>
+<li><p>axios 封装了 ajax</p>
+</li>
+<li><p>request 是 ant design 项目又封装了一次</p>
+</li>
+</ul>
+<p>追踪 request 源码：用到了 umi 的插件、requestConfig 配置文件</p>
+<h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><p>正向代理：替客户端向服务器发送请求，可以解决跨域问题</p>
+<p>反向代理：替服务器统一接收请求。</p>
+<p>怎么实现代理？</p>
+<ul>
+<li>Nginx 服务器</li>
+<li>Node.js 服务器</li>
+</ul>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>原本请求：<a target="_blank" rel="noopener" href="http://localhost:8000/api/user/login">http://localhost:8000/api/user/login</a></p>
+<p>代理到请求：<a target="_blank" rel="noopener" href="http://localhost:8080/api/user/login">http://localhost:8080/api/user/login</a></p>
+<p><img src="https://qiniuyun.code-nav.cn/img/image-20220319005859098.png" srcset="/chaserblog/img/loading.gif" lazyload></p>
+<h2 id="前端框架介绍"><a href="#前端框架介绍" class="headerlink" title="前端框架介绍"></a>前端框架介绍</h2><h3 id="Ant-Design-Pro（Umi-框架）权限管理"><a href="#Ant-Design-Pro（Umi-框架）权限管理" class="headerlink" title="Ant Design Pro（Umi 框架）权限管理"></a>Ant Design Pro（Umi 框架）权限管理</h3><ul>
+<li>app.tsx：项目全局入口文件，定义了整个项目中使用的公共数据（比如用户信息）</li>
+<li>access.ts 控制用户的访问权限</li>
+</ul>
+<p>获取初始状态流程：首次访问页面（刷新页面），进入 app.tsx，执行 getInitialState 方法，该方法的返回值就是全局可用的状态值。</p>
+<h3 id="ProComponents-高级表单"><a href="#ProComponents-高级表单" class="headerlink" title="ProComponents 高级表单"></a>ProComponents 高级表单</h3><ol>
+<li>通过 columns 定义表格有哪些列</li>
+<li>columns 属性<ul>
+<li>dataIndex 对应返回数据对象的属性</li>
+<li>title 表格列名</li>
+<li>copyable 是否允许复制</li>
+<li>ellipsis 是否允许缩略</li>
+<li>valueType：用于声明这一列的类型（dateTime、select）</li>
+</ul>
+</li>
+</ol>
+<h3 id="框架关系"><a href="#框架关系" class="headerlink" title="框架关系"></a>框架关系</h3><p>Ant Design 组件库 &#x3D;&gt; 基于 React 实现</p>
+<p>Ant Design Procomponents &#x3D;&gt; 基于 Ant Design 实现</p>
+<p>Ant Design Pro 后台管理系统 &#x3D;&gt; 基于 Ant Design + React + Ant Design Procomponents + 其他的库实现</p>
+<h3 id="其他知识"><a href="#其他知识" class="headerlink" title="其他知识"></a>其他知识</h3><p>MFSU：前端编译优化</p>
+<h2 id="后端优化"><a href="#后端优化" class="headerlink" title="后端优化"></a>后端优化</h2><h3 id="通用返回对象"><a href="#通用返回对象" class="headerlink" title="通用返回对象"></a>通用返回对象</h3><p>目的：给对象补充一些信息，告诉前端这个请求在业务层面上是成功还是失败</p>
+<p>200、404、500、502、503</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;yupi&quot;</span><br><span class="hljs-punctuation">&#125;</span><br><br>↓<br><br><span class="hljs-comment">// 成功</span><br><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span> <span class="hljs-comment">// 业务状态码</span><br>    <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;yupi&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>	<span class="hljs-attr">&quot;message&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ok&quot;</span><br><span class="hljs-punctuation">&#125;</span><br><br><br><span class="hljs-comment">// 错误</span><br><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">50001</span> <span class="hljs-comment">// 业务状态码</span><br>    <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><br>	<span class="hljs-attr">&quot;message&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;用户操作异常、xxx&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>自定义错误码，返回类支持返回正常和错误</p>
+<h3 id="封装全局异常处理器"><a href="#封装全局异常处理器" class="headerlink" title="封装全局异常处理器"></a>封装全局异常处理器</h3><h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><ol>
+<li><p>定义业务异常类</p>
+<ol>
+<li>相对于 java 的异常类，支持更多字段</li>
+<li>自定义构造函数，更灵活 &#x2F; 快捷的设置字段</li>
+</ol>
+</li>
+<li><p>编写全局异常处理器（利用 Spring AOP，在调用方法前后进行额外的处理）</p>
+</li>
+</ol>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ol>
+<li>捕获代码中所有的异常，内部消化，让前端得到更详细的业务报错 &#x2F; 信息</li>
+<li>同时屏蔽掉项目框架本身的异常（不暴露服务器内部状态）</li>
+<li>集中处理，比如记录日志</li>
+</ol>
+<h2 id="前端优化"><a href="#前端优化" class="headerlink" title="前端优化"></a>前端优化</h2><blockquote>
+<p>直播的 0：00 - 0：35 为踩坑过程，可跳过</p>
+</blockquote>
+<h3 id="全局响应处理"><a href="#全局响应处理" class="headerlink" title="全局响应处理"></a>全局响应处理</h3><p>应用场景：我们需要对接口的 <strong>通用响应</strong> 进行统一处理，比如从 response 中取出 data；或者根据 code 去集中处理错误，比如用户未登录、没权限之类的。</p>
+<p>优势：不用在每个接口请求中都去写相同的逻辑</p>
+<p>实现：参考你用的请求封装工具的官方文档，比如 umi-request（<a target="_blank" rel="noopener" href="https://github.com/umijs/umi-request#interceptor%E3%80%81https://blog.csdn.net/huantai3334/article/details/116780020%EF%BC%89%E3%80%82%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%94%A8">https://github.com/umijs/umi-request#interceptor、https://blog.csdn.net/huantai3334/article/details/116780020）。如果你用</a> <strong>axios</strong>，参考 axios 的文档。</p>
+<p>创建新的文件，在该文件中配置一个全局请求类。在发送请求时，使用我们自己的定义的全局请求类。</p>
+<h2 id="用户校验"><a href="#用户校验" class="headerlink" title="用户校验"></a>用户校验</h2><blockquote>
+<p>仅适用于用户可信的情况</p>
+</blockquote>
+<p>先让用户自己填：2 - 5 位编号，全凭自觉。</p>
+<p>后台补充对编号的校验：长度校验、唯一性校验</p>
+<p>前端补充输入框，适配后端。</p>
+<blockquote>
+<p>后期拉取星球数据，定期清理违规用户</p>
+</blockquote>
+<h2 id="多环境"><a href="#多环境" class="headerlink" title="多环境"></a>多环境</h2><p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41701290/article/details/120173283">https://blog.csdn.net/weixin_41701290/article/details/120173283</a></p>
+<p>本地开发：localhost（127.0.0.1）</p>
+<p>多环境：指同一套项目代码在不同的阶段需要根据实际情况来调整配置并且部署到不同的机器上。</p>
+<p>为什么需要？</p>
+<ol>
+<li>每个环境互不影响</li>
+<li>区分不同的阶段：开发 &#x2F; 测试 &#x2F; 生产</li>
+<li>对项目进行优化：<ol>
+<li>本地日志级别</li>
+<li>精简依赖，节省项目体积</li>
+<li>项目的环境 &#x2F; 参数可以调整，比如 JVM 参数</li>
+</ol>
+</li>
+</ol>
+<p>针对不同环境做不同的事情。</p>
+<p>多环境分类：</p>
+<ol>
+<li>本地环境（自己的电脑）localhost</li>
+<li>开发环境（远程开发）大家连同一台机器，为了大家开发方便</li>
+<li>测试环境（测试）开发 &#x2F; 测试 &#x2F; 产品，单元测试 &#x2F; 性能测试 &#x2F; 功能测试 &#x2F; 系统集成测试，独立的数据库、独立的服务器</li>
+<li>预发布环境（体验服）：和正式环境一致，正式数据库，更严谨，查出更多问题</li>
+<li>正式环境（线上，公开对外访问的项目）：尽量不要改动，保证上线前的代码是 “完美” 运行</li>
+<li>沙箱环境（实验环境）：为了做实验</li>
+</ol>
+<h3 id="前端多环境实战"><a href="#前端多环境实战" class="headerlink" title="前端多环境实战"></a>前端多环境实战</h3><ul>
+<li><p>请求地址</p>
+<ul>
+<li><p>开发环境：localhost:8000</p>
+</li>
+<li><p>线上环境：user-backend.code-nav.cn</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">startFront</span>(<span class="hljs-params">env</span>) &#123;<br>    <span class="hljs-keyword">if</span>(env === <span class="hljs-string">&#x27;prod&#x27;</span>) &#123;<br>        <span class="hljs-comment">// 不输出注释 </span><br>        <span class="hljs-comment">// 项目优化</span><br>        <span class="hljs-comment">// 修改请求地址</span><br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// 保持本地开发逻辑</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>用了 umi 框架，build 时会自动传入 NODE_ENV &#x3D;&#x3D; production 参数，start NODE_ENV 参数为 development</p>
+</li>
+<li><p>启动方式</p>
+<ul>
+<li>开发环境：npm run start（本地启动，监听端口、自动更新）</li>
+<li>线上环境：npm run build（项目构建打包），可以使用 serve 工具启动（npm i -g serve）</li>
+</ul>
+</li>
+<li><p>项目的配置</p>
+<p>不同的项目（框架）都有不同的配置文件，umi 的配置文件是 config，可以在配置文件后添加对应的环境名称后缀来区分开发环境和生产环境。参考文档：<a target="_blank" rel="noopener" href="https://umijs.org/zh-CN/docs/deployment">https://umijs.org/zh-CN/docs/deployment</a></p>
+<ul>
+<li>开发环境：config.dev.ts</li>
+<li>生产环境：config.prod.ts</li>
+<li>公共配置：config.ts 不带后缀</li>
+</ul>
+</li>
+</ul>
+<h3 id="后端多环境实战"><a href="#后端多环境实战" class="headerlink" title="后端多环境实战"></a>后端多环境实战</h3><p>SpringBoot 项目，通过 application.yml 添加不同的后缀来区分配置文件</p>
+<p>可以在启动项目时传入环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">java -jar .\user-center-backend-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod<br></code></pre></td></tr></table></figure>
+
+<p>主要是改：</p>
+<ul>
+<li><p>依赖的环境地址</p>
+<ul>
+<li><p>数据库地址</p>
+</li>
+<li><p>缓存地址</p>
+</li>
+<li><p>消息队列地址</p>
+</li>
+<li><p>项目端口号</p>
+</li>
+</ul>
+</li>
+<li><p>服务器配置</p>
+</li>
+</ul>
+<h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><p>参考文章：<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv16179200">https://www.bilibili.com/read/cv16179200</a></p>
+<p>需要 Linux 服务器（建议大家用 CentOS 8+ &#x2F; 7.6 以上）</p>
+<h3 id="原始部署"><a href="#原始部署" class="headerlink" title="原始部署"></a>原始部署</h3><p>什么都自己装</p>
+<h4 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h4><p>需要 web 服务器：<strong>nginx</strong> 、apache、tomcat</p>
+<p>安装 nginx 服务器：</p>
+<ol>
+<li><p>用系统自带的软件包管理器快速安装，比如 centos 的 yum</p>
+</li>
+<li><p>自己到官网安装（参考文章）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -o nginx-1.21.6.tar.gz http://nginx.org/download/nginx-1.21.6.tar.gz<br><br>tar -zxvf nginx-1.21.6.tar.gz<br><br><span class="hljs-built_in">cd</span> nginx-1.21.6<br><br>   37  2022-04-17 23:30:09 yum install pcre pcre-devel -y<br>   39  2022-04-17 23:30:59 yum install openssl openssl-devel -y<br>   41  2022-04-17 23:31:57 ./configure --with-http_ssl_module --with-http_v2_module --with-stream<br>   42  2022-04-17 23:32:13 make<br>   43  2022-04-17 23:32:54 make install<br>   48  2022-04-17 23:33:40 <span class="hljs-built_in">ls</span> /usr/local/nginx/sbin/nginx<br>   vim /etc/profile<br>  在最后一行添加：<span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/usr/local/nginx/sbin	<br>  <br>  nginx<br>  <br>  netstat -ntlp 查看启动情况<br></code></pre></td></tr></table></figure>
+
+<p>注意 nginx 权限</p>
+</li>
+</ol>
+<h4 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h4><p>java、maven</p>
+<p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">yum install -y java-1.8.0-openjdk*<br><br>curl -o apache-maven-3.8.5-bin.tar.gz https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz<br><br>git <span class="hljs-built_in">clone</span> xxx 下载代码<br><br>打包构建，跳过测试<br>mvn package -DskipTests<br><br>java -jar ./user-center-backend-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="宝塔-Linux-部署"><a href="#宝塔-Linux-部署" class="headerlink" title="宝塔 Linux 部署"></a>宝塔 Linux 部署</h3><p>Linux 运维面板</p>
+<p>官方安装教程：<a target="_blank" rel="noopener" href="https://www.bt.cn/new/download.html">https://www.bt.cn/new/download.html</a></p>
+<p>方便管理服务器、方便安装软件</p>
+<h3 id="前端托管"><a href="#前端托管" class="headerlink" title="前端托管"></a>前端托管</h3><p>前端腾讯云 web 应用托管（比容器化更傻瓜式，不需要自己写构建应用的命令，就能启动前端项目）</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/webify/new">https://console.cloud.tencent.com/webify/new</a></p>
+</blockquote>
+<ul>
+<li>小缺点：需要将代码放到代码托管平台上</li>
+<li>优势：不用写命令、代码更新时自动构建</li>
+</ul>
+<h3 id="Docker-部署"><a href="#Docker-部署" class="headerlink" title="Docker 部署"></a>Docker 部署</h3><p>docker 是容器，可以将项目的环境（比如 java、nginx）和项目的代码一起打包成镜像，所有同学都能下载镜像，更容易分发和移植。</p>
+<p>再启动项目时，不需要敲一大堆命令，而是直接下载镜像、启动镜像就可以了。</p>
+<p>docker 可以理解为软件安装包。</p>
+<p>Docker 安装：<a target="_blank" rel="noopener" href="https://www.docker.com/get-started/">https://www.docker.com/get-started/</a> 或者宝塔安装</p>
+<p>Dockerfile 用于指定构建 Docker 镜像的方法</p>
+<p>Dockerfile 一般情况下不需要完全从 0 自己写，建议去 github、gitee 等托管平台参考同类项目（比如 springboot）</p>
+<p>Dockerfile 编写：</p>
+<ul>
+<li>FROM 依赖的基础镜像</li>
+<li>WORKDIR 工作目录</li>
+<li>COPY 从本机复制文件</li>
+<li>RUN 执行命令</li>
+<li>CMD &#x2F; ENTRYPOINT（附加额外参数）指定运行容器时默认执行的命令</li>
+</ul>
+<p>根据 Dockerfile 构建镜像：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 后端</span><br>docker build -t user-center-backend:v0.0.1 .<br><br><span class="hljs-comment"># 前端</span><br>docker build -t user-center-front:v0.0.1 .<br></code></pre></td></tr></table></figure>
+
+<p>Docker 构建优化：减少尺寸、减少构建时间（比如多阶段构建，可以丢弃之前阶段不需要的内容）</p>
+<p>docker run 启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 前端</span><br>docker run -p 80:80 -d user-center-frontend:v0.0.1<br><br><span class="hljs-comment"># 后端</span><br>docker run -p 8080:8080 user-center-backend:v0.0.1<br></code></pre></td></tr></table></figure>
+
+<p>虚拟化</p>
+<ol>
+<li>端口映射：把本机的资源（实际访问地址）和容器内部的资源（应用启动端口）进行关联</li>
+<li>目录映射：把本机的端口和容器应用的端口进行关联</li>
+</ol>
+<p>进入容器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker <span class="hljs-built_in">exec</span> -i -t  fee2bbb7c9ee /bin/bash<br></code></pre></td></tr></table></figure>
+
+
+
+<p>查看进程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker ps <br></code></pre></td></tr></table></figure>
+
+
+
+<p>查看日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker logs -f [container-id]<br></code></pre></td></tr></table></figure>
+
+
+
+<p>杀死容器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker <span class="hljs-built_in">kill</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>强制删除镜像：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker rmi -f<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="Docker-平台部署"><a href="#Docker-平台部署" class="headerlink" title="Docker 平台部署"></a>Docker 平台部署</h3><ol>
+<li>云服务商的容器平台（腾讯云、阿里云）</li>
+<li>面向某个领域的容器平台（前端 &#x2F; 后端微信云托管）<strong>要花钱！</strong></li>
+</ol>
+<p>容器平台的好处：</p>
+<ol>
+<li>不用输命令来操作，更方便省事</li>
+<li>不用在控制台操作，更傻瓜式、更简单</li>
+<li>大厂运维，比自己运维更省心</li>
+<li>额外的能力，比如监控、告警、其他（存储、负载均衡、自动扩缩容、流水线）</li>
+</ol>
+<p>爽就完事了！！！</p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>前端项目访问流程：用户输入网址 &#x3D;&gt; 域名解析服务器（把网址解析为 ip 地址 &#x2F; 交给其他的域名解析服务） &#x3D;&gt; 服务器 &#x3D;&gt;（防火墙）&#x3D;&gt; nginx 接收请求，找到对应的文件，返回文件给前端 &#x3D;&gt; 前端加载文件到浏览器中（js、css） &#x3D;&gt; 渲染页面</p>
+<p>后端项目访问流程：用户输入网址 &#x3D;&gt; 域名解析服务器 &#x3D;&gt; 服务器 &#x3D;&gt; nginx 接收请求 &#x3D;&gt; 后端项目（比如 8080端口）</p>
+<p>nginx 反向代理的作用：替服务器接收请求，转发请求</p>
+<h2 id="跨域问题解决"><a href="#跨域问题解决" class="headerlink" title="跨域问题解决"></a>跨域问题解决</h2><p>浏览器为了用户的安全，仅允许向 <strong>同域名、同端口</strong> 的服务器发送请求。</p>
+<p>如何解决跨域？</p>
+<p>最直接的方式：把域名、端口改成相同的</p>
+<h3 id="添加跨域头"><a href="#添加跨域头" class="headerlink" title="添加跨域头"></a>添加跨域头</h3><p>让服务器告诉浏览器：允许跨域（返回 cross-origin-allow 响应头）</p>
+<h4 id="1-网关支持（Nginx）"><a href="#1-网关支持（Nginx）" class="headerlink" title="1. 网关支持（Nginx）"></a>1. 网关支持（Nginx）</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># 跨域配置</span><br><span class="hljs-section">location</span><span class="hljs-regexp"> ^~</span> /api/ &#123;<br>    <span class="hljs-attribute">proxy_pass</span> http://127.0.0.1:8080/api/;<br>    <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Origin&#x27;</span> <span class="hljs-variable">$http_origin</span>;<br>    <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Credentials&#x27;</span> <span class="hljs-string">&#x27;true&#x27;</span>;<br>    <span class="hljs-attribute">add_header</span> Access-Control-Allow-Methods <span class="hljs-string">&#x27;GET, POST, OPTIONS&#x27;</span>;<br>    <span class="hljs-attribute">add_header</span> Access-Control-Allow-Headers <span class="hljs-string">&#x27;*&#x27;</span>;<br>    <span class="hljs-attribute">if</span> (<span class="hljs-variable">$request_method</span> = <span class="hljs-string">&#x27;OPTIONS&#x27;</span>) &#123;<br>        <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Credentials&#x27;</span> <span class="hljs-string">&#x27;true&#x27;</span>;<br>        <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Origin&#x27;</span> <span class="hljs-variable">$http_origin</span>;<br>        <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Methods&#x27;</span> <span class="hljs-string">&#x27;GET, POST, OPTIONS&#x27;</span>;<br>        <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Allow-Headers&#x27;</span> <span class="hljs-string">&#x27;DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range&#x27;</span>;<br>        <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Access-Control-Max-Age&#x27;</span> <span class="hljs-number">1728000</span>;<br>        <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Content-Type&#x27;</span> <span class="hljs-string">&#x27;text/plain; charset=utf-8&#x27;</span>;<br>        <span class="hljs-attribute">add_header</span> <span class="hljs-string">&#x27;Content-Length&#x27;</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-attribute">return</span> <span class="hljs-number">204</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-修改后端服务"><a href="#2-修改后端服务" class="headerlink" title="2. 修改后端服务"></a>2. 修改后端服务</h4><ol>
+<li><p>配置 @CrossOrigin 注解</p>
+</li>
+<li><p>添加 web 全局请求拦截器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">WebMvcConfg</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> &#123;<br> <br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addCorsMappings</span><span class="hljs-params">(CorsRegistry registry)</span> &#123;<br>        <span class="hljs-comment">//设置允许跨域的路径</span><br>        registry.addMapping(<span class="hljs-string">&quot;/**&quot;</span>)<br>                <span class="hljs-comment">//设置允许跨域请求的域名</span><br>                <span class="hljs-comment">//当**Credentials为true时，**Origin不能为星号，需为具体的ip地址【如果接口不带cookie,ip无需设成具体ip】</span><br>                .allowedOrigins(<span class="hljs-string">&quot;http://localhost:9527&quot;</span>, <span class="hljs-string">&quot;http://127.0.0.1:9527&quot;</span>, <span class="hljs-string">&quot;http://127.0.0.1:8082&quot;</span>, <span class="hljs-string">&quot;http://127.0.0.1:8083&quot;</span>)<br>                <span class="hljs-comment">//是否允许证书 不再默认开启</span><br>                .allowCredentials(<span class="hljs-literal">true</span>)<br>                <span class="hljs-comment">//设置允许的方法</span><br>                .allowedMethods(<span class="hljs-string">&quot;*&quot;</span>)<br>                <span class="hljs-comment">//跨域允许时间</span><br>                .maxAge(<span class="hljs-number">3600</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>定义新的 corsFilter Bean，参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b02099a435bd">https://www.jianshu.com/p/b02099a435bd</a></p>
+</li>
+</ol>
+<h2 id="项目优化点"><a href="#项目优化点" class="headerlink" title="项目优化点"></a>项目优化点</h2><ol>
+<li>功能扩充<ol>
+<li>管理员创建用户、修改用户信息、删除用户</li>
+<li>上传头像</li>
+<li>按照更多的条件去查询用户</li>
+<li>更改权限</li>
+</ol>
+</li>
+<li>修改 Bug</li>
+<li>项目登录改为分布式 session（单点登录 - redis）</li>
+<li>通用性<ol>
+<li>set-cookie domain 域名更通用，比如改为 *.xxx.com</li>
+<li>把用户管理系统 &#x3D;&gt; 用户中心（之后所有的服务都请求这个后端）</li>
+</ol>
+</li>
+<li>后台添加全局请求拦截器（统一去判断用户权限、统一记录请求日志）</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/chaserblog/tags/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%B1%BC%E7%9A%AE/" class="print-no-link">#程序员鱼皮</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>学习</div>
+      <div>https://zhangruyi3906.github.io/chaserblog/2024/04/28/星球直播笔记-用户中心（完整版）/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/chaserblog/2024/04/28/%E6%8A%93%E9%B1%BC-%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E8%AF%84%E8%AE%BA%E5%8C%BA%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="学习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/chaserblog/2024/04/28/%E9%B1%BC%E7%A5%A8-%E5%8F%91%E5%88%B8%E4%B8%AD%E5%BF%83%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="学习">
+                        <span class="hidden-mobile">学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+<script  src="/chaserblog/js/click-lihua.js" ></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/chaserblog/js/events.js" ></script>
+<script  src="/chaserblog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/chaserblog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/chaserblog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/chaserblog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/chaserblog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

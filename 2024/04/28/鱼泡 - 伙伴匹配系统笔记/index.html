@@ -1,0 +1,1453 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/chaserblog/img/fluid.png">
+  <link rel="icon" href="/chaserblog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="鱼泡 - 伙伴匹配系统介绍：帮助大家找到志同道合的伙伴，移动端 H5 网页（尽量兼容 PC 端） 需求分析 用户去添加标签，标签的分类（要有哪些标签、怎么把标签进行分类）学习方向 java &#x2F; c++，工作 &#x2F; 大学 主动搜索：允许用户根据标签去搜索其他用户 Redis 缓存   组队 创建队伍 加入队伍 根据标签查询队伍 邀请其他人   允许用户去修改标签 推荐 相似度计算算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习">
+<meta property="og:url" content="https://zhangruyi3906.github.io/chaserblog/2024/04/28/%E9%B1%BC%E6%B3%A1%20-%20%E4%BC%99%E4%BC%B4%E5%8C%B9%E9%85%8D%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="鱼泡 - 伙伴匹配系统介绍：帮助大家找到志同道合的伙伴，移动端 H5 网页（尽量兼容 PC 端） 需求分析 用户去添加标签，标签的分类（要有哪些标签、怎么把标签进行分类）学习方向 java &#x2F; c++，工作 &#x2F; 大学 主动搜索：允许用户根据标签去搜索其他用户 Redis 缓存   组队 创建队伍 加入队伍 根据标签查询队伍 邀请其他人   允许用户去修改标签 推荐 相似度计算算">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qiniuyun.code-nav.cn/img/image-20220612234247152.png">
+<meta property="og:image" content="https://qiniuyun.code-nav.cn/img/image-20220612234335539.png">
+<meta property="article:published_time" content="2024-04-28T07:09:42.000Z">
+<meta property="article:modified_time" content="2024-04-28T08:09:55.916Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="程序员鱼皮">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://qiniuyun.code-nav.cn/img/image-20220612234247152.png">
+  
+  
+  
+  <title>学习 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/chaserblog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/chaserblog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/chaserblog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhangruyi3906.github.io","root":"/chaserblog/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/chaserblog/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/chaserblog/js/utils.js" ></script>
+  <script  src="/chaserblog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/chaserblog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/chaserblog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="学习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-28 15:09" pubdate>
+          2024年4月28日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          70 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">学习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="鱼泡-伙伴匹配系统"><a href="#鱼泡-伙伴匹配系统" class="headerlink" title="鱼泡 - 伙伴匹配系统"></a>鱼泡 - 伙伴匹配系统</h1><p>介绍：帮助大家找到志同道合的伙伴，移动端 H5 网页（尽量兼容 PC 端）</p>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ol>
+<li>用户去添加标签，标签的分类（要有哪些标签、怎么把标签进行分类）学习方向 java &#x2F; c++，工作 &#x2F; 大学</li>
+<li>主动搜索：允许用户根据标签去搜索其他用户<ol>
+<li>Redis 缓存</li>
+</ol>
+</li>
+<li>组队<ol>
+<li>创建队伍</li>
+<li>加入队伍</li>
+<li>根据标签查询队伍</li>
+<li>邀请其他人</li>
+</ol>
+</li>
+<li>允许用户去修改标签</li>
+<li>推荐<ol>
+<li>相似度计算算法 + 本地分布式计算</li>
+</ol>
+</li>
+</ol>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><ol>
+<li>Vue 3 开发框架（提高页面开发的效率）</li>
+<li>Vant UI（基于 Vue 的移动端组件库）（React 版 Zent）</li>
+<li>Vite 2（打包工具，快！）</li>
+<li>Nginx 来单机部署</li>
+</ol>
+<h3 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h3><ol>
+<li>Java 编程语言 + SpringBoot 框架</li>
+<li>SpringMVC + MyBatis + MyBatis Plus（提高开发效率）</li>
+<li>MySQL 数据库</li>
+<li>Redis 缓存</li>
+<li>Swagger + Knife4j 接口文档</li>
+</ol>
+<h2 id="第一期计划"><a href="#第一期计划" class="headerlink" title="第一期计划"></a>第一期计划</h2><ol>
+<li>前端项目初始化 15 min √</li>
+<li>前端主页 + 组件概览 15 min √</li>
+<li>数据库表设计 15 min √<ol>
+<li>标签表</li>
+<li>用户表</li>
+</ol>
+</li>
+<li>初始化后端项目</li>
+<li>开发后端 - 根据标签搜索用户 30 min</li>
+<li>开发前端 - 根据标签搜索用户 20 min</li>
+</ol>
+<h2 id="前端项目初始化"><a href="#前端项目初始化" class="headerlink" title="前端项目初始化"></a>前端项目初始化</h2><p>用脚手架初始化项目</p>
+<ul>
+<li>Vue CLI <a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/">https://cli.vuejs.org/zh/</a></li>
+<li><strong>Vite 脚手架</strong> ：<a target="_blank" rel="noopener" href="https://vitejs.cn/guide/#scaffolding-your-first-vite-project">https://vitejs.cn/guide/#scaffolding-your-first-vite-project</a></li>
+</ul>
+<p>整合组件库 Vant：</p>
+<ul>
+<li>安装 Vant</li>
+<li>按需引入 npm i <a href="mailto:&#118;&#x69;&#116;&#101;&#45;&#112;&#108;&#x75;&#103;&#x69;&#110;&#x2d;&#x73;&#x74;&#121;&#108;&#101;&#45;&#105;&#109;&#112;&#x6f;&#x72;&#x74;&#64;&#49;&#46;&#x34;&#46;&#49;">&#118;&#x69;&#116;&#101;&#45;&#112;&#108;&#x75;&#103;&#x69;&#110;&#x2d;&#x73;&#x74;&#121;&#108;&#101;&#45;&#105;&#109;&#112;&#x6f;&#x72;&#x74;&#64;&#49;&#46;&#x34;&#46;&#49;</a> -D</li>
+</ul>
+<p>开发页面经验：</p>
+<ol>
+<li>多参考</li>
+<li>从整体到局部</li>
+<li>先想清楚页面要做成什么样子，再写代码</li>
+</ol>
+<h2 id="前端主页-组件概览-15-min"><a href="#前端主页-组件概览-15-min" class="headerlink" title="前端主页 + 组件概览 15 min"></a>前端主页 + 组件概览 15 min</h2><h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><p>导航条：展示当前页面名称</p>
+<p>主页搜索框 &#x3D;&gt; 搜索页 &#x3D;&gt; 搜索结果页（标签筛选页）</p>
+<p>内容</p>
+<p>tab 栏：</p>
+<ul>
+<li>主页（推荐页 + <strong>广告</strong> ）<ul>
+<li>搜索框</li>
+<li>banner</li>
+<li>推荐信息流</li>
+</ul>
+</li>
+<li>队伍页</li>
+<li>用户页（消息 - 暂时考虑发邮件）</li>
+</ul>
+<h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><p>很多页面要复用组件 &#x2F; 样式，重复写很麻烦、不利于维护，所以抽象一个通用的布局（Layout）</p>
+<p>组件化</p>
+<h2 id="数据库表设计"><a href="#数据库表设计" class="headerlink" title="数据库表设计"></a>数据库表设计</h2><p>标签的分类（要有哪些标签、怎么把标签进行分类）</p>
+<h3 id="新增标签表（分类表）"><a href="#新增标签表（分类表）" class="headerlink" title="新增标签表（分类表）"></a>新增标签表（分类表）</h3><p>建议用标签，不要用分类，更灵活。</p>
+<p>性别：男、女</p>
+<p>方向：Java、C++、Go、前端</p>
+<p>正在学：Spring</p>
+<p>目标：考研、春招、秋招、社招、考公、竞赛（蓝桥杯）、转行、跳槽</p>
+<p>段位：初级、中级、高级、王者</p>
+<p>身份：小学、初中、高中、大一、大二、大三、大四、学生、待业、已就业、研一、研二、研三</p>
+<p>状态：乐观、有点丧、一般、单身、已婚、有对象</p>
+<p><strong>【用户自己定义标签】？</strong></p>
+<p>字段：</p>
+<p>id int 主键</p>
+<p>标签名 varchar 非空（必须唯一，唯一索引）</p>
+<p>上传标签的用户 userId int（如果要根据 userId 查已上传标签的话，最好加上，普通索引）</p>
+<p>父标签 id ，parentId，int（分类）</p>
+<p>是否为父标签 isParent, tinyint（0 不是父标签、1 - 父标签）</p>
+<p>创建时间 createTime，datetime</p>
+<p>更新时间 updateTime，datetime</p>
+<p>是否删除 isDelete， tinyint（0、1）</p>
+<p>怎么查询所有标签，并且把标签分好组？按父标签 id 分组，能实现 √</p>
+<p>根据父标签查询子标签？根据 id 查询，能实现 √</p>
+<p>SQL 语言分类：</p>
+<p>DDL define 建表、操作表</p>
+<p>DML manage 更新删除数据，影响实际表里的内容</p>
+<p>DCL control 控制，权限</p>
+<p>DQL query 查询，select</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fan-yuan/p/7879353.html">https://www.cnblogs.com/fan-yuan/p/7879353.html</a></p>
+<h3 id="修改用户表"><a href="#修改用户表" class="headerlink" title="修改用户表"></a>修改用户表</h3><p>用户有哪些标签？</p>
+<p><strong>根据自己的实际需求来！！！</strong> 此处选择第一种</p>
+<ol>
+<li><p>直接在用户表补充 tags 字段，**[‘Java’, ‘男’] 存 json 字符串 ** </p>
+<p>优点：查询方便、不用新建关联表，标签是用户的固有属性（除了该系统、其他系统可能要用到，标签是用户的固有属性）节省开发成本</p>
+<p><strong>查询用户列表，查关系表拿到这 100 个用户有的所有标签 id，再根据标签 id 去查标签表。</strong></p>
+<p>哪怕性能低，可以用缓存。</p>
+<p>缺点：用户表多一列，会有点</p>
+</li>
+<li><p>加一个关联表，记录用户和标签的关系</p>
+<p>关联表的应用场景：查询灵活，可以正查反查</p>
+<p>缺点：要多建一个表、多维护一个表</p>
+<p>重点：企业大项目开发中尽量减少关联查询，很影响扩展性，而且会影响查询性能</p>
+</li>
+</ol>
+<h3 id="开发后端接口"><a href="#开发后端接口" class="headerlink" title="开发后端接口"></a>开发后端接口</h3><h4 id="搜索标签"><a href="#搜索标签" class="headerlink" title="搜索标签"></a>搜索标签</h4><ol>
+<li>允许用户传入多个标签，多个标签都存在才搜索出来 and。like ‘%Java%’ and like ‘%C++%’。</li>
+<li>允许用户传入多个标签，有任何一个标签存在就能搜索出来 or。like ‘%Java%’ or like ‘%C++%’</li>
+</ol>
+<p>两种方式：</p>
+<ol>
+<li>SQL 查询（实现简单，可以通过拆分查询进一步优化）</li>
+<li>内存查询（灵活，可以通过并发进一步优化）</li>
+</ol>
+<ul>
+<li><p>如果参数可以分析，根据用户的参数去选择查询方式，比如标签数</p>
+</li>
+<li><p>如果参数不可分析，并且数据库连接足够、内存空间足够，可以并发同时查询，谁先返回用谁。</p>
+</li>
+<li><p>还可以 SQL 查询与内存计算相结合，比如先用 SQL 过滤掉部分 tag</p>
+</li>
+</ul>
+<p>建议通过实际测试来分析哪种查询比较快，数据量大的时候验证效果更明显！</p>
+<p>解析 JSON 字符串：</p>
+<p>序列化：java对象转成 json</p>
+<p>反序列化：把 json 转为 java 对象</p>
+<p>java  json 序列化库有很多：</p>
+<ol>
+<li><p><strong>gson</strong>（google 的）</p>
+</li>
+<li><p>fastjson alibaba（ali 出品，快，但是漏洞太多）</p>
+</li>
+<li><p>jackson</p>
+</li>
+<li><p>kryo</p>
+</li>
+</ol>
+<h2 id="用户中心来集中提供用户的检索、操作、注册、登录、鉴权"><a href="#用户中心来集中提供用户的检索、操作、注册、登录、鉴权" class="headerlink" title="用户中心来集中提供用户的检索、操作、注册、登录、鉴权"></a>用户中心来集中提供用户的检索、操作、注册、登录、鉴权</h2><h2 id="中-2022-05-29"><a href="#中-2022-05-29" class="headerlink" title="中 2022-05-29"></a>中 2022-05-29</h2><p>本次直播内容（计划）： </p>
+<ol>
+<li><strong>上次的标签接口调试</strong> 5 min √</li>
+<li>前端整合路由 5min √</li>
+<li>前端开发（搜索页面、用户信息页、用户信息修改页）30 - 50min √</li>
+<li>后端整合 Swagger + Knife4j 接口文档 10 - 15min</li>
+<li>存量用户信息导入及同步（爬虫） 40 min</li>
+</ol>
+<h3 id="Java-8"><a href="#Java-8" class="headerlink" title="Java 8"></a>Java 8</h3><ol>
+<li>stream &#x2F; parallelStream 流失处理</li>
+<li>Optional 可选类</li>
+</ol>
+<h3 id="前端整合路由"><a href="#前端整合路由" class="headerlink" title="前端整合路由"></a>前端整合路由</h3><p>Vue-Router：<a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/#html%EF%BC%8C%E7%9B%B4%E6%8E%A5%E7%9C%8B%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%BC%95%E5%85%A5">https://router.vuejs.org/zh/guide/#html，直接看官方文档引入</a></p>
+<p>Vue-Router 其实就是帮助你根据不同的 url 来展示不同的页面（组件），不用自己写 if &#x2F; else</p>
+<p>路由配置影响整个项目，所以建议单独用 config 目录、单独的配置文件去集中定义和管理。</p>
+<p>有些组件库可能自带了和 Vue-Router 的整合，所以尽量先看组件文档、省去自己写的时间。</p>
+<h2 id="下-2022-06-05"><a href="#下-2022-06-05" class="headerlink" title="下 2022-06-05"></a>下 2022-06-05</h2><ol>
+<li>Java 后端整合 Swagger + Knife4j 接口文档 10 min √</li>
+<li>存量用户信息导入及同步（爬虫） 30 min - 40 min</li>
+<li></li>
+<li>前后端联调：搜索页面、用户信息页、用户信息修改页 30 - 40 min</li>
+<li>标签内容整理 15 min</li>
+<li>部分细节优化  todo</li>
+</ol>
+<h2 id="后端整合-Swagger-Knife4j-接口文档"><a href="#后端整合-Swagger-Knife4j-接口文档" class="headerlink" title="后端整合 Swagger + Knife4j 接口文档"></a>后端整合 Swagger + Knife4j 接口文档</h2><p>什么是接口文档？写接口信息的文档，每条接口包括：</p>
+<ul>
+<li>请求参数</li>
+<li>响应参数<ul>
+<li>错误码</li>
+</ul>
+</li>
+<li>接口地址</li>
+<li>接口名称</li>
+<li>请求类型</li>
+<li>请求格式</li>
+<li>备注</li>
+</ul>
+<p>who 谁用？一般是后端或者负责人来提供，后端和前端都要使用</p>
+<p>为什么需要接口文档？</p>
+<ul>
+<li>有个书面内容（背书或者归档），便于大家参考和查阅，便于 <strong>沉淀和维护</strong> ，拒绝口口相传</li>
+<li>接口文档便于前端和后端开发对接，前后端联调的 <strong>介质</strong> 。后端 &#x3D;&gt; 接口文档 &lt;&#x3D; 前端</li>
+<li>好的接口文档支持在线调试、在线测试，可以作为工具提高我们的开发测试效率</li>
+</ul>
+<p>怎么做接口文档？</p>
+<ul>
+<li>手写（比如腾讯文档、Markdown 笔记）</li>
+<li>自动化接口文档生成：自动根据项目代码生成完整的文档或在线调试的网页。Swagger，Postman（侧重接口管理）（国外）；apifox、apipost、eolink（国产）</li>
+</ul>
+<p>接口文档有哪些技巧？</p>
+<p>Swagger 原理：</p>
+<ol>
+<li>引入依赖（Swagger 或 Knife4j：<a target="_blank" rel="noopener" href="https://doc.xiaominfo.com/knife4j/documentation/get_start.html%EF%BC%89">https://doc.xiaominfo.com/knife4j/documentation/get_start.html）</a></li>
+<li>自定义 Swagger 配置类</li>
+<li>定义需要生成接口文档的代码位置（Controller）</li>
+<li>千万注意：线上环境不要把接口暴露出去！！！可以通过在 SwaggerConfig 配置文件开头加上 <code>@Profile(&#123;&quot;dev&quot;, &quot;test&quot;&#125;)</code> 限定配置仅在部分环境开启</li>
+<li>启动即可</li>
+<li>可以通过在 controller 方法上添加 @Api、@ApiImplicitParam(name &#x3D; “name”,value &#x3D; “姓名”,required &#x3D; true)    @ApiOperation(value &#x3D; “向客人问好”) 等注解来自定义生成的接口描述信息</li>
+</ol>
+<p>如果 springboot version &gt;&#x3D; 2.6，需要添加如下配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">mvc:</span><br>  	<span class="hljs-attr">pathmatch:</span><br>      <span class="hljs-attr">matching-strategy:</span> <span class="hljs-string">ANT_PATH_MATCHER</span><br></code></pre></td></tr></table></figure>
+
+<p>todo 怎么隐藏</p>
+<h2 id="存量用户信息导入及同步"><a href="#存量用户信息导入及同步" class="headerlink" title="存量用户信息导入及同步"></a>存量用户信息导入及同步</h2><ol>
+<li>把所有星球用户的信息导入</li>
+<li>把写了自我介绍的同学的标签信息导入</li>
+</ol>
+<p>FeHelper 前端辅助插件，推荐安装</p>
+<h3 id="看上了网页信息，怎么抓到？"><a href="#看上了网页信息，怎么抓到？" class="headerlink" title="看上了网页信息，怎么抓到？"></a>看上了网页信息，怎么抓到？</h3><ol>
+<li>分析原网站是怎么获取这些数据的？哪个接口？</li>
+</ol>
+<p>按 F 12 打开控制台，查看网络请求，复制 curl 代码便于查看和执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl <span class="hljs-string">&quot;https://api.zsxq.com/v2/hashtags/48844541281228/topics?count=20&quot;</span> ^<br>  -H <span class="hljs-string">&quot;authority: api.zsxq.com&quot;</span> ^<br>  -H <span class="hljs-string">&quot;accept: application/json, text/plain, */*&quot;</span> ^<br>  -H <span class="hljs-string">&quot;accept-language: zh-CN,zh;q=0.9&quot;</span> ^<br>  -H <span class="hljs-string">&quot;cache-control: no-cache&quot;</span> ^<br>  -H <span class="hljs-string">&quot;origin: https://wx.zsxq.com&quot;</span> ^<br>  -H <span class="hljs-string">&quot;pragma: no-cache&quot;</span> ^<br>  -H <span class="hljs-string">&quot;referer: https://wx.zsxq.com/&quot;</span> ^<br>  --compressed<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>用程序去调用接口</strong> （java okhttp httpclient &#x2F; python 都可以）</li>
+<li>处理（清洗）一下数据，之后就可以写到数据库里</li>
+</ol>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol>
+<li>从 excel 中导入全量用户数据，<strong>判重</strong> 。 easy excel：<a target="_blank" rel="noopener" href="https://alibaba-easyexcel.github.io/index.html">https://alibaba-easyexcel.github.io/index.html</a></li>
+<li>抓取写了自我介绍的同学信息，提取出用户昵称、用户唯一 id、自我介绍信息</li>
+<li>从自我介绍中提取信息，然后写入到数据库中</li>
+</ol>
+<h4 id="EasyExcel"><a href="#EasyExcel" class="headerlink" title="EasyExcel"></a>EasyExcel</h4><p>两种读对象的方式：</p>
+<ol>
+<li>确定表头：建立对象，和表头形成映射关系</li>
+<li>不确定表头：每一行数据映射为 Map&lt;String, Object&gt;</li>
+</ol>
+<p>两种读取模式：</p>
+<ol>
+<li>监听器：先创建监听器、在读取文件时绑定监听器。单独抽离处理逻辑，代码清晰易于维护；一条一条处理，适用于数据量大的场景。</li>
+<li>同步读：无需创建监听器，一次性获取完整数据。方便简单，但是数据量大时会有等待时常，也可能内存溢出。</li>
+</ol>
+<h2 id="2022-06-12-【4】"><a href="#2022-06-12-【4】" class="headerlink" title="2022-06-12 【4】"></a>2022-06-12 【4】</h2><ol>
+<li>页面和功能开发<ol>
+<li>搜索页面</li>
+<li>用户信息</li>
+<li>用户修改页面</li>
+</ol>
+</li>
+<li>改造用户中心，把单机登录改为分布式 session 登录</li>
+<li>标签的整理、细节的优化</li>
+</ol>
+<h3 id="前端页面跳转传值"><a href="#前端页面跳转传值" class="headerlink" title="前端页面跳转传值"></a>前端页面跳转传值</h3><ol>
+<li>query &#x3D;&gt; url searchParams，url 后附加参数，传递的值长度有限</li>
+<li>vuex（全局状态管理），搜索页将关键词塞到状态中，搜索结果页从状态取值</li>
+</ol>
+<h2 id="Session-共享"><a href="#Session-共享" class="headerlink" title="Session 共享"></a>Session 共享</h2><p>种 session 的时候注意范围，cookie.domain</p>
+<p>比如两个域名：</p>
+<p>aaa.yupi.com</p>
+<p>bbb.yupi.com</p>
+<p>如果要共享 cookie，可以种一个更高层的公共域名，比如 yupi.com</p>
+<h3 id="为什么服务器-A-登录后，请求发到服务器-B，不认识该用户？"><a href="#为什么服务器-A-登录后，请求发到服务器-B，不认识该用户？" class="headerlink" title="为什么服务器 A 登录后，请求发到服务器 B，不认识该用户？"></a>为什么服务器 A 登录后，请求发到服务器 B，不认识该用户？</h3><p>用户在 A 登录，所以 session（用户登录信息）存在了 A 上</p>
+<p>结果请求 B 时，B 没有用户信息，所以不认识。</p>
+<p><img src="https://qiniuyun.code-nav.cn/img/image-20220612234247152.png" srcset="/chaserblog/img/loading.gif" lazyload></p>
+<p>解决方案：<strong>共享存储</strong> ，而不是把数据放到单台服务器的内存中</p>
+<p><img src="https://qiniuyun.code-nav.cn/img/image-20220612234335539.png" srcset="/chaserblog/img/loading.gif" lazyload></p>
+<p>如何共享存储？</p>
+<ol>
+<li>Redis（基于内存的 K &#x2F; V 数据库）此处选择 Redis，因为用户信息读取 &#x2F; 是否登录的判断极其<strong>频繁</strong> ，Redis 基于内存，读写性能很高，简单的数据单机 qps 5w - 10w</li>
+<li>MySQL </li>
+<li>文件服务器 ceph</li>
+</ol>
+<h3 id="Session-共享实现"><a href="#Session-共享实现" class="headerlink" title="Session 共享实现"></a>Session 共享实现</h3><h4 id="1-安装-Redis"><a href="#1-安装-Redis" class="headerlink" title="1. 安装 Redis"></a>1. 安装 Redis</h4><p>官网：<a target="_blank" rel="noopener" href="https://redis.io/">https://redis.io/</a></p>
+<p>windows 下载：</p>
+<p>Redis 5.0.14 下载：</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1XcsAIrdeesQAyQU2lE3cOg">https://pan.baidu.com/s/1XcsAIrdeesQAyQU2lE3cOg</a> </p>
+<p>提取码：vkoi </p>
+<p>redis 管理工具 quick redis：<a target="_blank" rel="noopener" href="https://quick123.net/">https://quick123.net/</a></p>
+<ol start="2">
+<li>引入 redis，能够操作 redis：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.6.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>引入 spring-session 和 redis 的整合，使得自动将 session 存储到 redis 中：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.session<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-session-data-redis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.6.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>修改 spring-session 存储配置 <code>spring.session.store-type</code></p>
+<p>默认是 none，表示存储在单台服务器</p>
+<p>store-type: redis，表示从 redis 读写 session</p>
+</li>
+</ol>
+<p>JWT 的优缺点：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/108999941">https://zhuanlan.zhihu.com/p/108999941</a></p>
+<h2 id="todo-待优化"><a href="#todo-待优化" class="headerlink" title="todo 待优化"></a>todo 待优化</h2><p>前端：动态展示页面标题、微调格式</p>
+<h2 id="2022-07-03-伙伴匹配系统-5"><a href="#2022-07-03-伙伴匹配系统-5" class="headerlink" title="2022-07-03 伙伴匹配系统 5"></a>2022-07-03 伙伴匹配系统 5</h2><ol>
+<li>用户修改页面前端、后端开发和联调</li>
+</ol>
+<h2 id="2022-07-17-伙伴匹配系统-6"><a href="#2022-07-17-伙伴匹配系统-6" class="headerlink" title="2022-07-17 伙伴匹配系统 6"></a>2022-07-17 伙伴匹配系统 6</h2><ol>
+<li>开发主页（默认推荐和自己兴趣相当的用户）</li>
+<li>优化主页的性能（缓存 + 定时任务 + 分布式锁）</li>
+</ol>
+<h3 id="开发主页"><a href="#开发主页" class="headerlink" title="开发主页"></a>开发主页</h3><p>最简单：直接 list 列表</p>
+<p>模拟 1000 万个用户，再去查询</p>
+<h4 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h4><ol>
+<li><p>用可视化界面：适合一次性导入、数据量可控</p>
+</li>
+<li><p>写程序：for 循环，建议分批，不要一把梭哈（可以用接口来控制）<strong>要保证可控、幂等，注意线上环境和测试环境是有区别的</strong></p>
+<p>导入 1000 万条，for i 1000w</p>
+</li>
+<li><p>执行 SQL 语句：适用于小数据量</p>
+</li>
+</ol>
+<h4 id="编写一次性任务"><a href="#编写一次性任务" class="headerlink" title="编写一次性任务"></a>编写一次性任务</h4><p>for 循环插入数据的问题：</p>
+<ol>
+<li>建立和释放数据库链接（批量查询解决）</li>
+<li>for 循环是绝对线性的（并发）</li>
+</ol>
+<p>并发要注意执行的先后顺序无所谓，不要用到非并发类的集合</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-type">ExecutorService</span> <span class="hljs-variable">executorService</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ThreadPoolExecutor</span>(<span class="hljs-number">16</span>, <span class="hljs-number">1000</span>, <span class="hljs-number">10000</span>, TimeUnit.MINUTES, <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayBlockingQueue</span>&lt;&gt;(<span class="hljs-number">10000</span>));<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">// <span class="hljs-meta">CPU</span> 密集型：分配的核心线程数 = <span class="hljs-meta">CPU</span> - <span class="hljs-number">1</span><br>// IO 密集型：分配的核心线程数可以大于 <span class="hljs-meta">CPU</span> 核数<br></code></pre></td></tr></table></figure>
+
+<p>数据库慢？预先把数据查出来，放到一个更快读取的地方，不用再查数据库了。（缓存）</p>
+<p>预加载缓存，定时更新缓存。（定时任务）</p>
+<p>多个机器都要执行任务么？（分布式锁：控制同一时间只有一台机器去执行定时任务，其他机器不用重复执行了）</p>
+<h2 id="数据查询慢怎么办？"><a href="#数据查询慢怎么办？" class="headerlink" title="数据查询慢怎么办？"></a>数据查询慢怎么办？</h2><p>用缓存：提前把数据取出来保存好（通常保存到读写更快的介质，比如内存），就可以更快地读写。</p>
+<h3 id="缓存的实现"><a href="#缓存的实现" class="headerlink" title="缓存的实现"></a>缓存的实现</h3><ul>
+<li>Redis（分布式缓存）</li>
+<li>memcached（分布式）</li>
+<li>Etcd（云原生架构的一个分布式存储，<strong>存储配置</strong>，扩容能力）</li>
+</ul>
+<hr>
+<ul>
+<li><p>ehcache（单机）</p>
+</li>
+<li><p>本地缓存（Java 内存 Map）</p>
+</li>
+<li><p>Caffeine（Java 内存缓存，高性能）</p>
+</li>
+<li><p>Google Guava</p>
+</li>
+</ul>
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><blockquote>
+<p>NoSQL 数据库</p>
+</blockquote>
+<p>key - value 存储系统（区别于 MySQL，他存储的是键值对）</p>
+<h3 id="Redis-数据结构"><a href="#Redis-数据结构" class="headerlink" title="Redis 数据结构"></a>Redis 数据结构</h3><p>String 字符串类型： name: “yupi”</p>
+<p>List 列表：names: [“yupi”, “dogyupi”, “yupi”]</p>
+<p>Set 集合：names: [“yupi”, “dogyupi”]（值不能重复）</p>
+<p>Hash 哈希：nameAge: {  “yupi”: 1, “dogyupi”: 2 }</p>
+<p>Zset 集合：names: {  yupi - 9,   dogyupi - 12  }（适合做排行榜）</p>
+<hr>
+<p>bloomfilter（布隆过滤器，主要从大量的数据中快速过滤值，比如邮件黑名单拦截）</p>
+<p>geo（计算地理位置）</p>
+<p>hyperloglog（pv &#x2F; uv）</p>
+<p>pub &#x2F; sub（发布订阅，类似消息队列）</p>
+<p>BitMap （1001010101010101010101010101）</p>
+<h3 id="自定义序列化"><a href="#自定义序列化" class="headerlink" title="自定义序列化"></a>自定义序列化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.yupi.yupao.config;<br><br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.data.redis.connection.RedisConnectionFactory;<br><span class="hljs-keyword">import</span> org.springframework.data.redis.core.RedisTemplate;<br><span class="hljs-keyword">import</span> org.springframework.data.redis.serializer.RedisSerializer;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RedisTemplateConfig</span> &#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> RedisTemplate&lt;String, Object&gt; <span class="hljs-title function_">redisTemplate</span><span class="hljs-params">(RedisConnectionFactory connectionFactory)</span> &#123;<br>        RedisTemplate&lt;String, Object&gt; redisTemplate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">RedisTemplate</span>&lt;&gt;();<br>        redisTemplate.setConnectionFactory(connectionFactory);<br>        redisTemplate.setKeySerializer(RedisSerializer.string());<br>        <span class="hljs-keyword">return</span> redisTemplate;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>引入一个库时，先写测试类</p>
+</blockquote>
+<h3 id="Java-里的实现方式"><a href="#Java-里的实现方式" class="headerlink" title="Java 里的实现方式"></a>Java 里的实现方式</h3><h4 id="Spring-Data-Redis（推荐）"><a href="#Spring-Data-Redis（推荐）" class="headerlink" title="Spring Data Redis（推荐）"></a>Spring Data Redis（推荐）</h4><p>Spring Data：通用的数据访问框架，定义了一组 <strong>增删改查</strong> 的接口</p>
+<p>mysql、redis、jpa</p>
+<p><a target="_blank" rel="noopener" href="https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis">spring-data-redis</a></p>
+<p>1）引入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.6.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>2）配置 Redis 地址</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-comment"># redis 配置</span><br>  <span class="hljs-attr">redis:</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span><br>    <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span><br>    <span class="hljs-attr">database:</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="Jedis"><a href="#Jedis" class="headerlink" title="Jedis"></a>Jedis</h4><p>独立于 Spring 操作 Redis 的 Java 客户端</p>
+<p>要配合 Jedis Pool 使用</p>
+<h4 id="Lettuce"><a href="#Lettuce" class="headerlink" title="Lettuce"></a>Lettuce</h4><p><strong>高阶</strong> 的操作 Redis 的 Java 客户端</p>
+<p>异步、连接池</p>
+<h4 id="Redisson"><a href="#Redisson" class="headerlink" title="Redisson"></a>Redisson</h4><p>分布式操作 Redis 的 Java 客户端，让你像在使用本地的集合一样操作 Redis（分布式 Redis 数据网格）</p>
+<h4 id="JetCache"><a href="#JetCache" class="headerlink" title="JetCache"></a>JetCache</h4><p>对比</p>
+<ol>
+<li>如果你用的是 Spring，并且没有过多的定制化要求，可以用 Spring Data Redis，最方便</li>
+<li>如果你用的不是 SPring，并且追求简单，并且没有过高的性能要求，可以用 Jedis + Jedis Pool</li>
+<li>如果你的项目不是 Spring，并且追求高性能、高定制化，可以用 Lettuce，支持异步、连接池</li>
+</ol>
+<hr>
+<ul>
+<li>如果你的项目是分布式的，需要用到一些分布式的特性（比如分布式锁、分布式集合），推荐用 redisson</li>
+</ul>
+<h3 id="设计缓存-key"><a href="#设计缓存-key" class="headerlink" title="设计缓存 key"></a>设计缓存 key</h3><p>不同用户看到的数据不同</p>
+<p>systemId:moduleId:func:options（不要和别人冲突）</p>
+<p>yupao:user:recommed:userId</p>
+<p><strong>redis 内存不能无限增加，一定要设置过期时间！！！</strong></p>
+<h3 id="缓存预热"><a href="#缓存预热" class="headerlink" title="缓存预热"></a>缓存预热</h3><p>问题：第一个用户访问还是很慢（加入第一个老板），也能一定程度上保护数据库</p>
+<p>缓存预热的优点：</p>
+<ol>
+<li>解决上面的问题，可以让用户始终访问很快</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>增加开发成本（你要额外的开发、设计）</li>
+<li>预热的时机和时间如果错了，有可能你缓存的数据不对或者太老</li>
+<li>需要占用额外空间</li>
+</ol>
+<h4 id="怎么缓存预热？"><a href="#怎么缓存预热？" class="headerlink" title="怎么缓存预热？"></a>怎么缓存预热？</h4><ol>
+<li>定时</li>
+<li>模拟触发（手动触发）</li>
+</ol>
+<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><p>用定时任务，每天刷新所有用户的推荐列表</p>
+<p>注意点：</p>
+<ol>
+<li>缓存预热的意义（新增少、总用户多）</li>
+<li>缓存的空间不能太大，要预留给其他缓存空间</li>
+<li>缓存数据的周期（此处每天一次）</li>
+</ol>
+<blockquote>
+<p>分析优缺点的时候，要打开思路，从整个项目从 0 到 1 的链路上去分析</p>
+</blockquote>
+<h3 id="定时任务实现"><a href="#定时任务实现" class="headerlink" title="定时任务实现"></a>定时任务实现</h3><ol>
+<li><strong>Spring Scheduler（spring boot 默认整合了）</strong> </li>
+<li>Quartz（独立于 Spring 存在的定时任务框架）</li>
+<li>XXL-Job 之类的分布式任务调度平台（界面 + sdk）</li>
+</ol>
+<p>第一种方式：</p>
+<ol>
+<li>主类开启 @EnableScheduling</li>
+<li>给要定时执行的方法添加 @Scheduling 注解，指定 cron 表达式或者执行频率</li>
+</ol>
+<p>不要去背 cron 表达式！！！！！</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cron.qqe2.com/">https://cron.qqe2.com/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.matools.com/crontab/">https://www.matools.com/crontab/</a></li>
+</ul>
+<hr>
+<h3 id="控制定时任务的执行"><a href="#控制定时任务的执行" class="headerlink" title="控制定时任务的执行"></a>控制定时任务的执行</h3><p>为啥？</p>
+<ol>
+<li>浪费资源，想象 10000 台服务器同时 “打鸣”</li>
+<li>脏数据，比如重复插入</li>
+</ol>
+<p><strong>要控制定时任务在同一时间只有 1 个服务器能执行。</strong></p>
+<p>怎么做？</p>
+<ol>
+<li><p>分离定时任务程序和主程序，只在 1 个服务器运行定时任务。成本太大</p>
+</li>
+<li><p>写死配置，每个服务器都执行定时任务，但是只有 ip 符合配置的服务器才真实执行业务逻辑，其他的直接返回。成本最低；但是我们的 IP 可能是不固定的，把 IP 写的太死了</p>
+</li>
+<li><p>动态配置，配置是可以轻松的、很方便地更新的（<strong>代码无需重启</strong>），但是只有 ip 符合配置的服务器才真实执行业务逻辑。</p>
+<ul>
+<li>数据库</li>
+<li>Redis</li>
+<li>配置中心（Nacos、Apollo、Spring Cloud Config）</li>
+</ul>
+<p>问题：服务器多了、IP 不可控还是很麻烦，还是要人工修改</p>
+</li>
+<li><p>分布式锁，只有抢到锁的服务器才能执行业务逻辑。坏处：增加成本；好处：不用手动配置，多少个服务器都一样。</p>
+</li>
+</ol>
+<p><strong>单机就会存在单点故障。</strong></p>
+<h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><p>有限资源的情况下，控制同一时间（段）只有某些线程（用户 &#x2F; 服务器）能访问到资源。</p>
+<p>Java 实现锁：synchronized 关键字、并发包的类</p>
+<p>问题：只对单个 JVM 有效</p>
+<h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3><p>为啥需要分布式锁？</p>
+<ol>
+<li>有限资源的情况下，控制同一时间（段）只有某些线程（用户 &#x2F; 服务器）能访问到资源。</li>
+<li>单个锁只对单个 JVM 有效</li>
+</ol>
+<h3 id="分布式锁实现的关键"><a href="#分布式锁实现的关键" class="headerlink" title="分布式锁实现的关键"></a>分布式锁实现的关键</h3><h4 id="抢锁机制"><a href="#抢锁机制" class="headerlink" title="抢锁机制"></a>抢锁机制</h4><p>怎么保证同一时间只有 1 个服务器能抢到锁？</p>
+<p><strong>核心思想</strong> 就是：先来的人先把数据改成自己的标识（服务器 ip），后来的人发现标识已存在，就抢锁失败，继续等待。</p>
+<p>等先来的人执行方法结束，把标识清空，其他的人继续抢锁。</p>
+<p>MySQL 数据库：select for update 行级锁（最简单）</p>
+<p>（乐观锁）</p>
+<p>✔ Redis 实现：内存数据库，<strong>读写速度快</strong> 。支持 <strong>setnx</strong>、lua 脚本，比较方便我们实现分布式锁。</p>
+<p>setnx：set if not exists 如果不存在，则设置；只有设置成功才会返回 true，否则返回 false</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li><p>用完锁要释放（腾地方）√</p>
+</li>
+<li><p><strong>锁一定要加过期时间 √</strong></p>
+</li>
+<li><p>如果方法执行时间过长，锁提前过期了？</p>
+<p>问题：</p>
+<ol>
+<li>连锁效应：释放掉别人的锁</li>
+<li>这样还是会存在多个方法同时执行的情况</li>
+</ol>
+</li>
+</ol>
+<p>​	解决方案：续期</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">boolean</span> <span class="hljs-variable">end</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;<br><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>    <span class="hljs-keyword">if</span> (!end)&#125;&#123;<br>    续期<br>&#125;)<br><br>end = <span class="hljs-literal">true</span>;<br><br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>释放锁的时候，有可能先判断出是自己的锁，但这时锁过期了，最后还是释放了别人的锁</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 原子操作</span><br><span class="hljs-keyword">if</span>(get lock == A) &#123;<br>    <span class="hljs-comment">// set lock B</span><br>    del lock<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Redis + lua 脚本实现</p>
+</li>
+<li><p>Redis 如果是集群（而不是只有一个 Redis），如果分布式锁的数据不同步怎么办？</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/feiying0canglang/article/details/113258494">https://blog.csdn.net/feiying0canglang/article/details/113258494</a></p>
+<h4 id="拒绝自己写！！！"><a href="#拒绝自己写！！！" class="headerlink" title="拒绝自己写！！！"></a>拒绝自己写！！！</h4><h3 id="Redisson-实现分布式锁"><a href="#Redisson-实现分布式锁" class="headerlink" title="Redisson 实现分布式锁"></a>Redisson 实现分布式锁</h3><p>Java 客户端，数据网格</p>
+<p>实现了很多 Java 里支持的接口和数据结构</p>
+<p>Redisson 是一个 java 操作 Redis 的客户端，<strong>提供了大量的分布式数据集来简化对 Redis 的操作和使用，可以让开发者像使用本地集合一样使用 Redis，完全感知不到 Redis 的存在。</strong></p>
+<h4 id="2-种引入方式"><a href="#2-种引入方式" class="headerlink" title="2 种引入方式"></a>2 种引入方式</h4><ol>
+<li>spring boot starter 引入（不推荐，版本迭代太快，容易冲突）<a target="_blank" rel="noopener" href="https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter">https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter</a></li>
+<li>直接引入：<a target="_blank" rel="noopener" href="https://github.com/redisson/redisson#quick-start">https://github.com/redisson/redisson#quick-start</a></li>
+</ol>
+<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs setnx">// list，数据存在本地 JVM 内存中<br>List&lt;String&gt; list = new ArrayList&lt;&gt;();<br>list.add(&quot;yupi&quot;);<br>System.out.println(&quot;list:&quot; + list.get(0));<br><br>list.remove(0);<br><br>// 数据存在 redis 的内存中<br>RList&lt;String&gt; rList = redissonClient.getList(&quot;test-list&quot;);<br>rList.add(&quot;yupi&quot;);<br>System.out.println(&quot;rlist:&quot; + rList.get(0));<br>rList.remove(0);<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="定时任务-锁"><a href="#定时任务-锁" class="headerlink" title="定时任务  + 锁"></a>定时任务  + 锁</h3><ol>
+<li>waitTime 设置为 0，只抢一次，抢不到就放弃</li>
+<li>注意释放锁要写在 finally 中</li>
+</ol>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWatchDog</span>()</span> &#123;<br>    RLock <span class="hljs-keyword">lock</span> = redissonClient.getLock(<span class="hljs-string">&quot;yupao:precachejob:docache:lock&quot;</span>);<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-comment">// 只有一个线程能获取到锁</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">lock</span>.tryLock(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, TimeUnit.MILLISECONDS)) &#123;<br>            <span class="hljs-comment">// todo 实际要执行的方法</span><br>            doSomeThings();<br>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;getLock: &quot;</span> + Thread.currentThread().getId());<br>        &#125;<br>    &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>        System.<span class="hljs-keyword">out</span>.println(e.getMessage());<br>    &#125; <span class="hljs-keyword">finally</span> &#123;<br>        <span class="hljs-comment">// 只能释放自己的锁</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">lock</span>.isHeldByCurrentThread()) &#123;<br>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;unLock: &quot;</span> + Thread.currentThread().getId());<br>            <span class="hljs-keyword">lock</span>.unlock();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="看门狗机制"><a href="#看门狗机制" class="headerlink" title="看门狗机制"></a>看门狗机制</h3><blockquote>
+<p>redisson 中提供的续期机制</p>
+</blockquote>
+<p>开一个监听线程，如果方法还没执行完，就帮你重置 redis 锁的过期时间。</p>
+<p>原理：</p>
+<ol>
+<li>监听当前线程，默认过期时间是 30 秒，每 10 秒续期一次（补到 30 秒）</li>
+<li>如果线程挂掉（注意 debug 模式也会被它当成服务器宕机），则不会续期</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26222859/article/details/79645203">https://blog.csdn.net/qq_26222859/article/details/79645203</a></p>
+<hr>
+<p>Zookeeper 实现（不推荐）</p>
+<h3 id="组队功能-1h"><a href="#组队功能-1h" class="headerlink" title="组队功能 1h"></a>组队功能 1h</h3><p>理解为王者荣耀</p>
+<h4 id="理想的应用场景"><a href="#理想的应用场景" class="headerlink" title="理想的应用场景"></a>理想的应用场景</h4><p>我要跟别人一起参加竞赛或者做项目，可以发起队伍或者加入别人的队伍</p>
+<h4 id="需求分析-1"><a href="#需求分析-1" class="headerlink" title="需求分析"></a>需求分析</h4><p>用户可以 <strong>创建</strong> 一个队伍，设置队伍的人数、队伍名称（标题）、描述、超时时间 P0</p>
+<blockquote>
+<p>队长、剩余的人数</p>
+<p>聊天？</p>
+<p>公开 或 private 或加密</p>
+<p><strong>用户创建队伍最多 5 个</strong></p>
+</blockquote>
+<p>展示队伍列表，根据名称搜索队伍  P0，信息流中不展示已过期的队伍</p>
+<p>修改队伍信息 P0 ~ P1</p>
+<p>用户可以加入队伍（其他人、未满、未过期），允许加入多个队伍，但是要有个上限  P0</p>
+<blockquote>
+<p>是否需要队长同意？筛选审批？</p>
+</blockquote>
+<p>用户可以退出队伍（如果队长退出，权限转移给第二早加入的用户 —— 先来后到） P1</p>
+<p>队长可以解散队伍 P0</p>
+<hr>
+<p>分享队伍 &#x3D;》 邀请其他用户加入队伍 P1</p>
+<p>业务流程：</p>
+<ol>
+<li>生成分享链接（分享二维码）</li>
+<li>用户访问链接，可以点击加入</li>
+</ol>
+<p>队伍人满后发送消息通知 P1</p>
+<h4 id="系统（接口）设计"><a href="#系统（接口）设计" class="headerlink" title="系统（接口）设计"></a>系统（接口）设计</h4><h5 id="1、创建队伍"><a href="#1、创建队伍" class="headerlink" title="1、创建队伍"></a>1、创建队伍</h5><p>用户可以 <strong>创建</strong> 一个队伍，设置队伍的人数、队伍名称（标题）、描述、超时时间 P0</p>
+<blockquote>
+<p>队长、剩余的人数</p>
+<p>聊天？</p>
+<p>公开 或 private 或加密</p>
+<p>信息流中不展示已过期的队伍</p>
+</blockquote>
+<ol>
+<li>请求参数是否为空？</li>
+<li>是否登录，未登录不允许创建</li>
+<li>校验信息<ol>
+<li>队伍人数 &gt; 1 且 &lt;&#x3D; 20</li>
+<li>队伍标题 &lt;&#x3D; 20</li>
+<li>描述 &lt;&#x3D; 512</li>
+<li>status 是否公开（int）不传默认为 0（公开）</li>
+<li>如果 status 是加密状态，一定要有密码，且密码 &lt;&#x3D; 32</li>
+<li>超时时间 &gt; 当前时间</li>
+<li>校验用户最多创建 5 个队伍</li>
+</ol>
+</li>
+<li>插入队伍信息到队伍表</li>
+<li>插入用户  &#x3D;&gt; 队伍关系到关系表</li>
+</ol>
+<h5 id="2、查询队伍列表"><a href="#2、查询队伍列表" class="headerlink" title="2、查询队伍列表"></a>2、查询队伍列表</h5><p>分页展示队伍列表，根据名称、最大人数等搜索队伍  P0，信息流中不展示已过期的队伍</p>
+<ol>
+<li>从请求参数中取出队伍名称等查询条件，如果存在则作为查询条件</li>
+<li>不展示已过期的队伍（根据过期时间筛选）</li>
+<li>可以通过某个<strong>关键词</strong>同时对名称和描述查询</li>
+<li><strong>只有管理员才能查看加密还有非公开的房间</strong></li>
+<li>关联查询已加入队伍的用户信息</li>
+<li><strong>关联查询已加入队伍的用户信息（可能会很耗费性能，建议大家用自己写 SQL 的方式实现）</strong></li>
+</ol>
+<p><strong>实现方式</strong></p>
+<p>1）自己写 SQL</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">// 1. 自己写 SQL<br>// 查询队伍和创建人的信息<br>// <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> team t <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> <span class="hljs-keyword">user</span> u <span class="hljs-keyword">on</span> t.userId = u.id<br>// 查询队伍和已加入队伍成员的信息<br>// <span class="hljs-keyword">select</span> *<br>// <span class="hljs-keyword">from</span> team t<br>//         <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> user_team ut <span class="hljs-keyword">on</span> t.id = ut.teamId<br>//         <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> <span class="hljs-keyword">user</span> u <span class="hljs-keyword">on</span> ut.userId = u.id;<br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="3-修改队伍信息"><a href="#3-修改队伍信息" class="headerlink" title="3. 修改队伍信息"></a>3. 修改队伍信息</h5><ol>
+<li>判断请求参数是否为空</li>
+<li>查询队伍是否存在</li>
+<li>只有管理员或者队伍的创建者可以修改</li>
+<li>如果用户传入的新值和老值一致，就不用 update 了（可自行实现，降低数据库使用次数）</li>
+<li><strong>如果队伍状态改为加密，必须要有密码</strong></li>
+<li>更新成功</li>
+</ol>
+<h5 id="4-用户可以加入队伍"><a href="#4-用户可以加入队伍" class="headerlink" title="4. 用户可以加入队伍"></a>4. 用户可以加入队伍</h5><p>其他人、未满、未过期，允许加入多个队伍，但是要有个上限  P0</p>
+<ol>
+<li>用户最多加入 5 个队伍</li>
+<li>队伍必须存在，只能加入未满、未过期的队伍</li>
+<li>不能加入自己的队伍，不能重复加入已加入的队伍（幂等性）</li>
+<li>禁止加入私有的队伍</li>
+<li>如果加入的队伍是加密的，必须密码匹配才可以</li>
+<li>新增队伍 - 用户关联信息</li>
+</ol>
+<p><strong>注意，一定要加上事务注解！！！！</strong></p>
+<h5 id="5-用户可以退出队伍"><a href="#5-用户可以退出队伍" class="headerlink" title="5. 用户可以退出队伍"></a>5. 用户可以退出队伍</h5><p>请求参数：队伍 id</p>
+<ol>
+<li><p>校验请求参数</p>
+</li>
+<li><p>校验队伍是否存在</p>
+</li>
+<li><p>校验我是否已加入队伍</p>
+</li>
+<li><p>如果队伍</p>
+<ol>
+<li><p>只剩一人，队伍解散</p>
+</li>
+<li><p>还有其他人</p>
+<ol>
+<li><p>如果是队长退出队伍，权限转移给第二早加入的用户 —— 先来后到</p>
+<blockquote>
+<p>只用取 id 最小的 2 条数据</p>
+</blockquote>
+</li>
+<li><p>非队长，自己退出队伍</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h5 id="6-队长可以解散队伍"><a href="#6-队长可以解散队伍" class="headerlink" title="6. 队长可以解散队伍"></a>6. 队长可以解散队伍</h5><p>请求参数：队伍 id</p>
+<p>业务流程：</p>
+<ol>
+<li>校验请求参数</li>
+<li>校验队伍是否存在</li>
+<li>校验你是不是队伍的队长</li>
+<li>移除所有加入队伍的关联信息</li>
+<li>删除队伍</li>
+</ol>
+<h5 id="7-获取当前用户已加入的队伍"><a href="#7-获取当前用户已加入的队伍" class="headerlink" title="7. 获取当前用户已加入的队伍"></a>7. 获取当前用户已加入的队伍</h5><h5 id="8-获取当前用户创建的队伍"><a href="#8-获取当前用户创建的队伍" class="headerlink" title="8. 获取当前用户创建的队伍"></a>8. 获取当前用户创建的队伍</h5><p>复用 listTeam 方法，只新增查询条件，不做修改（开闭原则）</p>
+<hr>
+<h4 id="事务注解"><a href="#事务注解" class="headerlink" title="事务注解"></a>事务注解</h4><p>@Transactional(rollbackFor &#x3D; Exception.class)</p>
+<p>要么数据操作都成功，要么都失败</p>
+<h3 id="数据库表设计-1"><a href="#数据库表设计-1" class="headerlink" title="数据库表设计"></a>数据库表设计</h3><p>队伍表 team</p>
+<p>字段：</p>
+<ul>
+<li>id 主键 bigint（最简单、连续，放 url 上比较简短，但缺点是爬虫）</li>
+<li>name 队伍名称</li>
+<li>description 描述</li>
+<li>maxNum 最大人数</li>
+<li>expireTime 过期时间</li>
+<li>userId 创建人 id</li>
+<li>status 0 - 公开，1 - 私有，2 - 加密</li>
+<li>password 密码</li>
+<li>createTime 创建时间</li>
+<li>updateTime 更新时间</li>
+<li>isDelete 是否删除</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> team<br>(<br>    id           <span class="hljs-type">bigint</span> auto_increment comment <span class="hljs-string">&#x27;id&#x27;</span><br>        <span class="hljs-keyword">primary</span> key,<br>    name   <span class="hljs-type">varchar</span>(<span class="hljs-number">256</span>)                   <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;队伍名称&#x27;</span>,<br>    description <span class="hljs-type">varchar</span>(<span class="hljs-number">1024</span>)                      <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;描述&#x27;</span>,<br>    maxNum    <span class="hljs-type">int</span>      <span class="hljs-keyword">default</span> <span class="hljs-number">1</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;最大人数&#x27;</span>,<br>    expireTime    datetime  <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;过期时间&#x27;</span>,<br>    userId            <span class="hljs-type">bigint</span> comment <span class="hljs-string">&#x27;用户id&#x27;</span>,<br>    status    <span class="hljs-type">int</span>      <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;0 - 公开，1 - 私有，2 - 加密&#x27;</span>,<br>    password <span class="hljs-type">varchar</span>(<span class="hljs-number">512</span>)                       <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;密码&#x27;</span>,<br>    <br>        createTime   datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;创建时间&#x27;</span>,<br>    updateTime   datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">on</span> <span class="hljs-keyword">update</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>,<br>    isDelete     tinyint  <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;是否删除&#x27;</span><br>)<br>    comment <span class="hljs-string">&#x27;队伍&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>用户  - 队伍表 user_team</p>
+<p>字段：</p>
+<ul>
+<li>id 主键</li>
+<li>userId 用户 id</li>
+<li>teamId 队伍 id</li>
+<li>joinTime 加入时间</li>
+<li>createTime 创建时间</li>
+<li>updateTime 更新时间</li>
+<li>isDelete 是否删除</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> user_team<br>(<br>    id           <span class="hljs-type">bigint</span> auto_increment comment <span class="hljs-string">&#x27;id&#x27;</span><br>        <span class="hljs-keyword">primary</span> key,<br>    userId            <span class="hljs-type">bigint</span> comment <span class="hljs-string">&#x27;用户id&#x27;</span>,<br>    teamId            <span class="hljs-type">bigint</span> comment <span class="hljs-string">&#x27;队伍id&#x27;</span>,<br>    joinTime datetime  <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;加入时间&#x27;</span>,<br>    createTime   datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;创建时间&#x27;</span>,<br>    updateTime   datetime <span class="hljs-keyword">default</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">on</span> <span class="hljs-keyword">update</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>,<br>    isDelete     tinyint  <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>                 <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;是否删除&#x27;</span><br>)<br>    comment <span class="hljs-string">&#x27;用户队伍关系&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>两个关系：</p>
+<ol>
+<li>用户加了哪些队伍？</li>
+<li>队伍有哪些用户？</li>
+</ol>
+<p>方式：</p>
+<ol>
+<li>建立用户 - 队伍关系表 teamId userId（便于修改，查询性能高一点，可以选择这个，不用全表遍历）</li>
+<li>用户表补充已加入的队伍字段，队伍表补充已加入的用户字段（便于查询，不用写多对多的代码，可以直接根据队伍查用户、根据用户查队伍）</li>
+</ol>
+<h4 id="为什么需要请求参数包装类？"><a href="#为什么需要请求参数包装类？" class="headerlink" title="为什么需要请求参数包装类？"></a>为什么需要请求参数包装类？</h4><ol>
+<li><p>请求参数名称 &#x2F; 类型和实体类不一样</p>
+</li>
+<li><p>有一些参数用不到，如果要自动生成接口文档，会增加理解成本</p>
+</li>
+<li><p>对个实体类映射到同一个对象</p>
+</li>
+</ol>
+<h4 id="为什么需要包装类？"><a href="#为什么需要包装类？" class="headerlink" title="为什么需要包装类？"></a>为什么需要包装类？</h4><p>可能有些字段需要隐藏，不能返回给前端</p>
+<p>或者有些字段某些方法是不关心的</p>
+<h4 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h4><p>库表设计 5 - 10min</p>
+<p>增删改查 5 - 10 min</p>
+<p>业务逻辑开发（P0）30 min</p>
+<h2 id="2022-09-18-12-期"><a href="#2022-09-18-12-期" class="headerlink" title="2022-09-18 12 期"></a>2022-09-18 12 期</h2><ol>
+<li>开发前端的功能<ol>
+<li>搜索队伍 √</li>
+<li>更新队伍（仅队伍的创始人可见） √</li>
+<li>查看个人已加入队伍 √</li>
+<li>查看个人创建的队伍 √</li>
+<li>解散队伍 √</li>
+<li>退出队伍 √</li>
+</ol>
+</li>
+<li>随机匹配 30 - 40 min</li>
+<li>完成之前的遗留问题 todo</li>
+</ol>
+<h3 id="前端不同页面怎么传递数据？"><a href="#前端不同页面怎么传递数据？" class="headerlink" title="前端不同页面怎么传递数据？"></a>前端不同页面怎么传递数据？</h3><ol>
+<li><strong>url querystring（xxx?id&#x3D;1）</strong> 比较适用于页面跳转</li>
+<li><strong>url（&#x2F;team&#x2F;:id，xxx&#x2F;1）</strong></li>
+<li>hash (&#x2F;team#1)</li>
+<li>localStorage</li>
+<li><strong>context（全局变量，同页面或整个项目要访问公共变量）</strong></li>
+</ol>
+<h3 id="随机匹配"><a href="#随机匹配" class="headerlink" title="随机匹配"></a>随机匹配</h3><blockquote>
+<p>为了帮大家更快地发现和自己兴趣相同的朋友</p>
+</blockquote>
+<p>匹配 1 个还是匹配多个？</p>
+<p>答：匹配多个，并且按照匹配的相似度从高到低排序</p>
+<p>怎么匹配？（根据什么匹配）</p>
+<p>答：标签 tags</p>
+<blockquote>
+<p>还可以根据 user_team 匹配加入相同队伍的用户</p>
+</blockquote>
+<p>本质：找到有相似标签的用户</p>
+<p>举例：</p>
+<p>用户 A：[Java, 大一, 男]</p>
+<p>用户 B：[Java, 大二, 男]</p>
+<p>用户 C：[Python, 大二, 女]</p>
+<p>用户 D：[Java, 大一, 女]</p>
+<h4 id="1-怎么匹配"><a href="#1-怎么匹配" class="headerlink" title="1. 怎么匹配"></a>1. 怎么匹配</h4><ol>
+<li>找到有共同标签最多的用户（TopN）</li>
+<li>共同标签越多，分数越高，越排在前面</li>
+<li>如果没有匹配的用户，随机推荐几个（降级方案）</li>
+</ol>
+<p>编辑距离算法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/DBC_121/article/details/104198838">https://blog.csdn.net/DBC_121/article/details/104198838</a></p>
+<blockquote>
+<p>最小编辑距离：字符串 1 通过最少多少次增删改字符的操作可以变成字符串 2</p>
+</blockquote>
+<p>余弦相似度算法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_55613022/article/details/125683937%EF%BC%88%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%E5%B8%A6%E6%9D%83%E9%87%8D%E8%AE%A1%E7%AE%97%EF%BC%8C%E6%AF%94%E5%A6%82%E5%AD%A6%E4%BB%80%E4%B9%88%E6%96%B9%E5%90%91%E6%9C%80%E9%87%8D%E8%A6%81%EF%BC%8C%E6%80%A7%E5%88%AB%E7%9B%B8%E5%AF%B9%E6%AC%A1%E8%A6%81%EF%BC%89">https://blog.csdn.net/m0_55613022/article/details/125683937（如果需要带权重计算，比如学什么方向最重要，性别相对次要）</a></p>
+<h4 id="2-怎么对所有用户匹配，取-TOP"><a href="#2-怎么对所有用户匹配，取-TOP" class="headerlink" title="2. 怎么对所有用户匹配，取 TOP"></a>2. 怎么对所有用户匹配，取 TOP</h4><p>直接取出所有用户，依次和当前用户计算分数，取 TOP N（54 秒）</p>
+<p>优化方法：</p>
+<ol>
+<li><p>切忌不要在数据量大的时候循环输出日志（取消掉日志后 20 秒）</p>
+</li>
+<li><p>Map 存了所有的分数信息，占用内存</p>
+<p>解决：维护一个固定长度的有序集合（sortedSet），只保留分数最高的几个用户（时间换空间）</p>
+<p>e.g.【3, 4, 5, 6, 7】取 TOP 5，id 为 1 的用户就不用放进去了</p>
+</li>
+<li><p>细节：剔除自己 √</p>
+</li>
+<li><p>尽量只查需要的数据：</p>
+<ol>
+<li>过滤掉标签为空的用户 √</li>
+<li>根据部分标签取用户（前提是能区分出来哪个标签比较重要）</li>
+<li>只查需要的数据（比如 id 和 tags） √（7.0s）</li>
+</ol>
+</li>
+<li><p>提前查？（定时任务）</p>
+<ol>
+<li>提前把所有用户给缓存（不适用于经常更新的数据）</li>
+<li>提前运算出来结果，缓存（针对一些重点用户，提前缓存）</li>
+</ol>
+</li>
+</ol>
+<p>大数据推荐，比如说有几亿个商品，难道要查出来所有的商品？</p>
+<p>难道要对所有的数据计算一遍相似度？</p>
+<p>检索 &#x3D;&gt; 召回 &#x3D;&gt; 粗排 &#x3D;&gt; 精排 &#x3D;&gt; 重排序等等</p>
+<p>检索：尽可能多地查符合要求的数据（比如按记录查）</p>
+<p>召回：查询可能要用到的数据（不做运算）</p>
+<p>粗排：粗略排序，简单地运算（运算相对轻量）</p>
+<p>精排：精细排序，确定固定排位</p>
+<h3 id="分表学习建议"><a href="#分表学习建议" class="headerlink" title="分表学习建议"></a>分表学习建议</h3><p>mycat、sharding sphere 框架</p>
+<p>一致性 hash</p>
+<h3 id="队伍操作权限控制"><a href="#队伍操作权限控制" class="headerlink" title="队伍操作权限控制"></a>队伍操作权限控制</h3><p>加入队伍： 仅非队伍创建人、且未加入队伍的人可见</p>
+<p>更新队伍：仅创建人可见</p>
+<p>解散队伍：仅创建人可见</p>
+<p>退出队伍：创建人不可见，仅已加入队伍的人可见</p>
+<p>加载骨架屏特效 ✔</p>
+<p>解决：van-skeleton 组件</p>
+<p>仅加入队伍和创建队伍的人能看到队伍操作按钮（listTeam 接口要能获取我加入的队伍状态） ✔</p>
+<p>方案 1：前端查询我加入了哪些队伍列表，然后判断每个队伍 id 是否在列表中（前端要多发一次请求）</p>
+<p>方案 2：在后端去做上述事情（推荐）</p>
+<p>前端导航栏死【标题】问题 ✔</p>
+<p>解决：使用 router.beforeEach，根据要跳转页面的 url 路径 匹配 config&#x2F;routes 配置的 title 字段。</p>
+<h2 id="14-优化、上线"><a href="#14-优化、上线" class="headerlink" title="14 优化、上线"></a>14 优化、上线</h2><p>1、强制登录，自动跳转到登录页</p>
+<p>解决：axios 全局配置响应拦截、并且添加重定向</p>
+<p>2、区分公开和加密房间；加入有密码的房间，要指定密码</p>
+<p>3、展示已加入队伍人数</p>
+<p>4、重复加入队伍的问题（加锁、分布式锁）并发请求时可能出现问题</p>
+<p><strong>分布式锁</strong></p>
+<h2 id="上线"><a href="#上线" class="headerlink" title="上线"></a>上线</h2><p>先区分多环境：前端区分开发和线上接口，后端 prod 改为用线上公网可访问的数据库</p>
+<p>前端：Vercel（免费）</p>
+<p><a target="_blank" rel="noopener" href="https://vercel.com/">https://vercel.com/</a></p>
+<p>后端：微信云托管（部署容器的平台，付费）</p>
+<p><a target="_blank" rel="noopener" href="https://cloud.weixin.qq.com/cloudrun/service">https://cloud.weixin.qq.com/cloudrun/service</a></p>
+<p><strong>（免备案！！！）</strong></p>
+<h2 id="如何改造成小程序？"><a href="#如何改造成小程序？" class="headerlink" title="如何改造成小程序？"></a>如何改造成小程序？</h2><p><strong>cordova、跨端开发框架 taro、uniapp</strong></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/chaserblog/tags/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%B1%BC%E7%9A%AE/" class="print-no-link">#程序员鱼皮</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>学习</div>
+      <div>https://zhangruyi3906.github.io/chaserblog/2024/04/28/鱼泡 - 伙伴匹配系统笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/chaserblog/2024/04/28/%E9%B1%BC%E7%A5%A8-%E5%8F%91%E5%88%B8%E4%B8%AD%E5%BF%83%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="学习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+<script  src="/chaserblog/js/click-lihua.js" ></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/chaserblog/js/events.js" ></script>
+<script  src="/chaserblog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/chaserblog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/chaserblog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/chaserblog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/chaserblog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
