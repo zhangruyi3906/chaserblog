@@ -1,0 +1,732 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/chaserblog/img/fluid.png">
+  <link rel="icon" href="/chaserblog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="树莓派的使用      1. 板子，散热套装，外壳，电源，内存卡32g（单买的品牌的，闪迪），配置好的完整系统，可以直接上手用    有配套文档，其他的是B站自己找的学的          2. 好嘞。我看看都有啥啊，发你，其实也没多少东西。          3. 树莓派就是个微型电脑 ，系统搭好之后，你在里面就可以使用命令行开发了，所以说你会Python，玩这个贼简单。  这个里面最复杂的就是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024.5.2">
+<meta property="og:url" content="https://zhangruyi3906.github.io/chaserblog/2024/05/02/2024-5-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="树莓派的使用      1. 板子，散热套装，外壳，电源，内存卡32g（单买的品牌的，闪迪），配置好的完整系统，可以直接上手用    有配套文档，其他的是B站自己找的学的          2. 好嘞。我看看都有啥啊，发你，其实也没多少东西。          3. 树莓派就是个微型电脑 ，系统搭好之后，你在里面就可以使用命令行开发了，所以说你会Python，玩这个贼简单。  这个里面最复杂的就是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502100817360.png">
+<meta property="og:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502100925126.png">
+<meta property="og:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502104205355.png">
+<meta property="og:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101456385.png">
+<meta property="og:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101518931.png">
+<meta property="og:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101608812.png">
+<meta property="og:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101646241.png">
+<meta property="og:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101723199.png">
+<meta property="og:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101751007.png">
+<meta property="article:published_time" content="2024-05-02T02:04:14.000Z">
+<meta property="article:modified_time" content="2024-05-02T14:54:02.056Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://zhangruyi3906.github.io/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502100817360.png">
+  
+  
+  
+  <title>2024.5.2 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/chaserblog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/chaserblog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/chaserblog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhangruyi3906.github.io","root":"/chaserblog/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/chaserblog/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/chaserblog/js/utils.js" ></script>
+  <script  src="/chaserblog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/chaserblog/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chaserblog/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/chaserblog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2024.5.2"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-02 10:04" pubdate>
+          2024年5月2日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2024.5.2</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="树莓派的使用"><a href="#树莓派的使用" class="headerlink" title="树莓派的使用"></a>树莓派的使用</h1><pre><code class="hljs">      1. 板子，散热套装，外壳，电源，内存卡32g（单买的品牌的，闪迪），配置好的完整系统，可以直接上手用
+</code></pre>
+<p>  有配套文档，其他的是B站自己找的学的<br>          2. 好嘞。我看看都有啥啊，发你，其实也没多少东西。<br>          3. 树莓派就是个微型电脑 ，系统搭好之后，你在里面就可以使用命令行开发了，所以说你会Python，玩这个贼简单。<br>  这个里面最复杂的就是搭建系统，我也已经搭建好了，所以你拿到手后直接开发就行。</p>
+<p><img src="/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502100817360.png" srcset="/chaserblog/img/loading.gif" lazyload alt="image-20240502100817360"></p>
+<p>这个软件投射屏幕的</p>
+<p><img src="/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502100925126.png" srcset="/chaserblog/img/loading.gif" lazyload alt="image-20240502100925126"></p>
+<p>这个可以编写代码</p>
+<ol start="4">
+<li><p>树莓派通过局域网和pc连接，ip（连接wifi教程B站）</p>
+</li>
+<li><p>同学，其实树莓派入门最难得地方就是配环境，那个视频我翻不出来了。你可以b站随便搜就行，而且你不需要配环境了。<br>其次复杂的地方就是和电脑通讯，按照我发的视频来做。</p>
+<p>这两步做完之后，剩下就自己开发了，自己需要做什么写代码做就可以了。如果没做过这一类，你可以百度搜一下Linux指令，在命令行练一练就可以。</p>
+</li>
+<li><p>你之前做过Linux吗？学过的话，你做这个树莓派就贼简单，没学过的话，你就需要先了解下都有哪些指令了，记住一些常见指令。</p>
+</li>
+<li><p>（新）树莓派4B系统镜像ssh及WIFI远程配置资料<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Jan7v6DuHxY6VmYcLNfTHQ">https://pan.baidu.com/s/1Jan7v6DuHxY6VmYcLNfTHQ</a><br>提取码：tmsr</p>
+</li>
+<li><p>【淘宝】<a target="_blank" rel="noopener" href="https://m.tb.cn/h.g0PjF29jFfqtBuU?tk=4jY6Ws2euJr">https://m.tb.cn/h.g0PjF29jFfqtBuU?tk=4jY6Ws2euJr</a> HU0854 「树莓派5 Raspberry Pi 5代 套件 4g 8g 开发板 Arm Cortex-A76 5b」<br>点击链接直接打开 或者 淘宝搜索直接打开（这是我买东西的链接。）</p>
+</li>
+<li><p>我觉得你可以网上找个现成的简单项目代码，然后一行一行查，那段代码学会了你也就会Python了</p>
+</li>
+<li><p>推荐一个嘛。我现在手里也没有。<br>你可以这样，csdn上搜卷积神经网络Python代码，然后成套代码，然后里面代码使用gtp辅助帮你理解每一行代码。<br>一行一样学，学完了就大概知道了啥意思了，再捋两边，至少你就能读懂Python了，然后可以自己尝试写个简单代码试试。</p>
+</li>
+<li><p>这只我个人学习方法，可以试试适合你不。我最开始学的c，然后学的c#，后来发现这些语言看书学的贼慢，直接看代码效率高很多，所以后来的Python，JAVA啥的都是这样学的。自我感觉这方法还可以。</p>
+</li>
+<li><p>看书学编程是最慢的方法，学了好几天，还在前几页呆着呢，合上书，还是啥也不会</p>
+</li>
+<li><p>方法就这么方法，利用好csdn，github这些平台。不会就差，现在嘛，啥都能查到，可能有的方法不对，那就换下一个。代码不明白了，找gtp辅助</p>
+</li>
+<li><p>多简单啊，但是总得自己动手。自己能顺利完成一个了，之后就顺利多了</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol>
+<li><p>首先保证电脑和树莓派连一个无线网（不要连校园网，使用路由器那种，或者手机流量开热点）</p>
+</li>
+<li><p>树莓派第一次连接无线网，我发的资料聊有设置默认链接WIFI教程</p>
+</li>
+<li><p>也可以使用网线连接路由器进行有线连接   <a target="_blank" rel="noopener" href="https://blog.csdn.net/bhniunan/article/details/104814904">树莓派入门（七）—— 树莓派4Bwifi无线上网配置</a></p>
+<p>先要将sd卡插入到usb3.0读卡器上，再将读卡器插入到电脑上，增加两个文件，用cd. &gt; ssh添加一个ssh文件</p>
+<p>注意：添加文件时一定要右键以管理员方式打开cmd，添加才会有效</p>
+<p>用 cd. &gt; upclient 添加一个文件，在这个文件中添加语句，使树莓派能开机就连接到wifi。</p>
+<p>ARP（<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%9C%B0%E5%9D%80&spm=1001.2101.3001.7020">地址</a>解析协议）</p>
+<p>地址解析协议，即ARP（Address <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Resolution&spm=1001.2101.3001.7020">Resolution</a> Protocol），是根据IP地址获取物理地址的一个TCP&#x2F;IP协议。arp -a参数的含义就是通过询问当前协议数据，显示当前 ARP 项。如果指定 inet_addr，则只显示指定计算机的 IP 地址和物理地址。如果不止一个网络接口使用 ARP，则显示每个 ARP 表的项。</p>
+<p><img src="/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502104205355.png" srcset="/chaserblog/img/loading.gif" lazyload alt="image-20240502104205355"></p>
+<p>win+R</p>
+<p>ARP -A</p>
+<p>树莓派ip地址</p>
+</li>
+<li><p>然后在cmd中输入图片中命令，查找树莓派ip</p>
+<p><img src="/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101456385.png" srcset="/chaserblog/img/loading.gif" lazyload alt="image-20240502101456385"></p>
+</li>
+<li><p>然后打开mobaxterm软件</p>
+<p><img src="/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101518931.png" srcset="/chaserblog/img/loading.gif" lazyload alt="image-20240502101518931"></p>
+</li>
+<li><p>这个界面输入ip就可以。然后进入一个界面，输入账户   pi。密码 raspberry  输的时候不显示，然后进入下面的界面。</p>
+<p><img src="/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101608812.png" srcset="/chaserblog/img/loading.gif" lazyload alt="image-20240502101608812"></p>
+</li>
+<li><p>就跟Linux一样了，操作编程就可以了</p>
+</li>
+<li><p>显示，打开vnc</p>
+<p><img src="/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101646241.png" srcset="/chaserblog/img/loading.gif" lazyload alt="image-20240502101646241"></p>
+</li>
+<li><p>点这里，然后输入ip，就可以看到屏幕了。</p>
+<p><img src="/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101723199.png" srcset="/chaserblog/img/loading.gif" lazyload alt="image-20240502101723199"></p>
+<p><img src="/chaserblog/chaserblog/2024/05/02/2024-5-2/Hexo/blog/source/_posts/assets/image-20240502101751007.png" srcset="/chaserblog/img/loading.gif" lazyload alt="image-20240502101751007"></p>
+</li>
+<li><p>风扇我接好了，以后需要屏幕，买块屏幕接上就可以，具体引脚接口啥的，你可以查下之前发的资料或百度。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>查看磁盘空间：df -h </p>
+<p>&#x2F;dev&#x2F;root 7.2G 5.9G 955M 87% &#x2F;<br>devtmpfs 458M 0 458M 0% &#x2F;dev<br>tmpfs 462M 0 462M 0% &#x2F;dev&#x2F;shm<br>tmpfs 462M 6.4M 456M 2% &#x2F;run<br>tmpfs 5.0M 4.0K 5.0M 1% &#x2F;run&#x2F;lock<br>tmpfs 462M 0 462M 0% &#x2F;sys&#x2F;fs&#x2F;cgroup<br>&#x2F;dev&#x2F;sda1 22G 23M 22G 1% &#x2F;boot<br>tmpfs 93M 0 93M 0% &#x2F;run&#x2F;user&#x2F;1000<br>root@raspberrypi:&#x2F;home#</p>
+<p>vnc要连接上的话，要在mobaXterm中输入vncserver，</p>
+<p>树莓派换源：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45396672/article/details/121616103?ops_request_misc=%7B%22request_id%22:%22171464903116800185850591%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=171464903116800185850591&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-121616103-null-null.142%5Ev100%5Epc_search_result_base4&utm_term=%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E8%BF%90%E8%A1%8Cpython&spm=1018.2226.3001.4187">树莓派服务器自动执行python脚本_树莓派python两个程序,如何一个先进行后一个自动进行-CSDN博客</a></p>
+<p>树莓派vi编辑操作<a target="_blank" rel="noopener" href="https://blog.csdn.net/ShenZhen_zixian/article/details/119343622?ops_request_misc=%7B%22request_id%22:%22171464930216800182755761%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=171464930216800182755761&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-119343622-null-null.142%5Ev100%5Epc_search_result_base4&utm_term=%E6%A0%91%E8%8E%93%E6%B4%BEvi%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91&spm=1018.2226.3001.4187">树莓派从零开始快速入门第3讲——文件编辑_树莓派编辑文件的指令-CSDN博客</a></p>
+<h1 id="树莓派运行sudo-apt-get-update报错"><a href="#树莓派运行sudo-apt-get-update报错" class="headerlink" title="树莓派运行sudo apt-get update报错"></a>树莓派运行sudo apt-get update报错</h1><p>[树莓派运行sudo apt-get update报错_树莓派 sudo apt upgrade 时内核崩溃-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/dps2023502/article/details/131882671?ops_request_misc=%7B%22request_id%22:%22171465086116800197047453%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=171465086116800197047453&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-131882671-null-null.142%5Ev100%5Epc_search_result_base4&utm_term=%E6%AD%A3%E5%9C%A8%E8%AF%BB%E5%8F%96%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%88%97%E8%A1%A8">https://blog.csdn.net/dps2023502/article/details/131882671?ops_request_misc=%7B%22request%5Fid%22%3A%22171465086116800197047453%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fall.%22%7D&amp;request_id=171465086116800197047453&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-131882671-null-null.142^v100^pc_search_result_base4&amp;utm_term=正在读取软件包列表</a>… 完成                                             E%3A 仓库http%3A%2F%2Fraspbian.raspberrypi.org%2Fraspbian buster InRelease将其Suite值从stable修改到了oldoldstable N%3A 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 ap&amp;spm&#x3D;1018.2226.3001.4187)</p>
+<p>修复方法</p>
+<p>运行 ：</p>
+<p>sudo apt-get -y update –allow-releaseinfo-change</p>
+<p>2、查看镜像源</p>
+<p>sudo vi &#x2F;etc&#x2F;apt&#x2F;sources.list</p>
+<p>更新镜像源</p>
+<p>deb <a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> stretch main contrib non-free rpi<br>deb-src <a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> stretch main contrib non-free rpi<br>——————</p>
+<p>[树莓派安装scratch3时，更新系统失败_debian安装 scratch3.0-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012611963/article/details/127025846?ops_request_misc=%7B%22request_id%22:%22171465086116800197047453%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=171465086116800197047453&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-127025846-null-null.142%5Ev100%5Epc_search_result_base4&utm_term=%E6%AD%A3%E5%9C%A8%E8%AF%BB%E5%8F%96%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%88%97%E8%A1%A8">https://blog.csdn.net/u012611963/article/details/127025846?ops_request_misc=%7B%22request%5Fid%22%3A%22171465086116800197047453%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fall.%22%7D&amp;request_id=171465086116800197047453&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-127025846-null-null.142^v100^pc_search_result_base4&amp;utm_term=正在读取软件包列表</a>… 完成                                             E%3A 仓库http%3A%2F%2Fraspbian.raspberrypi.org%2Fraspbian buster InRelease将其Suite值从stable修改到了oldoldstable N%3A 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 ap&amp;spm&#x3D;1018.2226.3001.4187)</p>
+<p>使用conda配置python环境</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45396672/article/details/121616103?ops_request_misc=%7B%22request_id%22:%22171464903116800185850591%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=171464903116800185850591&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-121616103-null-null.142%5Ev100%5Epc_search_result_base4&utm_term=%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E8%BF%90%E8%A1%8Cpython&spm=1018.2226.3001.4187">树莓派服务器自动执行python脚本_树莓派python两个程序,如何一个先进行后一个自动进行-CSDN博客</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/chaserblog/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="print-no-link">#学习笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2024.5.2</div>
+      <div>https://zhangruyi3906.github.io/chaserblog/2024/05/02/2024-5-2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/chaserblog/2024/05/03/2024-5-3/" title="2024-5.3">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2024-5.3</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/chaserblog/2024/04/29/%E7%AE%80%E5%8E%86%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%86%99%E6%89%8D%E8%83%BD%E5%90%B8%E5%BC%95%E9%9D%A2%E8%AF%95%E5%AE%98%E5%91%A2%EF%BC%9F/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+<script  src="/chaserblog/js/click-lihua.js" ></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/chaserblog/js/events.js" ></script>
+<script  src="/chaserblog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/chaserblog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/chaserblog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/chaserblog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/chaserblog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
